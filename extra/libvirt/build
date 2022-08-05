@@ -1,6 +1,10 @@
 #!/bin/sh -uxe
 export DESTDIR="$1"
 
+# Fix build with glibc 2.36
+patch -Np1 -i c0d9adf220dc0d223330a7bac37b174132d330ba.patch
+patch -Np1 -i 9493c9b79dc541ec9e0fd73c6d87bdf8d30aaa90.patch
+
 sed -i "s|/sysconfig/|/conf.d/|g" \
     src/remote/libvirtd.service.in \
     tools/{libvirt-guests.service,libvirt-guests.sh,virt-pki-validate}.in \
