@@ -20,7 +20,7 @@ export LINKFORSHARED="$LDFLAGS"
 ./configure \
     --prefix=/usr \
     --enable-shared \
-    --with-ensurepip \
+    --with-ensurepip=install \
     --enable-big-digits \
     --without-lto \
     --enable-ipv6 \
