@@ -2,7 +2,7 @@
 export DESTDIR="$1"
 
 # Fix LTO
-patch -Rp1 -i 7916fda00b347ff263fbfe72c065032d1d9b523c.patch
+#patch -Rp1 -i 7916fda00b347ff263fbfe72c065032d1d9b523c.patch
 
 # Add minimal debug info
 export CFLAGS+=" -g1"
