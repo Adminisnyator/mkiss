@@ -1,3 +1,2 @@
-git+git://sourceware.org/git/binutils-gdb.git#9c67f6382ac2c90fbde5729feaf7d59ce662147a
-patches/debug_loclists.patch
+git+git://sourceware.org/git/binutils-gdb.git#binutils-MAJOR_MINOR
 patches/gold-warn-unsupported.patch
