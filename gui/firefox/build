@@ -42,7 +42,8 @@ ulimit -n 4096
 # Fix broken redefinition in generated header
 sed -i '/const uint64_t ROOT_CLIP_CHAIN = ~0;/d' gfx/webrender_bindings/webrender_ffi.h
 
-patch -Np1 -i fix-glibc-2.36.patch
+patch -Np1 -i zstandard-0.18.0.diff
+patch -Np1 -i arc4random.diff
 
 yes y | ./mach build -j`nproc`
 ./mach buildsymbols
