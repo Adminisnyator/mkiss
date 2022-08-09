@@ -1,6 +1,8 @@
 #!/bin/sh -uxe
 export DESTDIR="$1"
 
+export CFLAGS+=" -Wno-implicit-function-declaration"
+
 meson build \
     ${MESON_OPTIONS/-D b_lto=true/} \
     --libexecdir /usr/lib/gamemode \
