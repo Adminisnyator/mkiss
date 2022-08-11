@@ -25,7 +25,7 @@ cd avrbuild
 # Check if the environment has everything we need
 make configure-host
 
-make tooldir=/usr
+make -O tooldir=/usr
 
 make DESTDIR="$1" prefix=/usr tooldir=/usr install
 
@@ -35,7 +35,7 @@ done
 
 rm "$1"/usr/lib/bfd-plugins/libdep.so
 
-for info in as bfd binutils gprof ld; do
+for info in as bfd binutils gprof ld ctf-spec; do
     mv "$1"/usr/share/info/${info}.info "$1"/usr/share/info/avr-${info}.info
 done
 
