@@ -1,3 +1,2 @@
-git+https://gitlab.gnome.org/GNOME/glade.git#glade-MAJOR-MINOR
-https://gitlab.gnome.org/GNOME/glade/-/merge_requests/117.patch
+git+https://gitlab.gnome.org/GNOME/glade.git#GLADE_MAJOR_MINOR_PATCH
 patches/python-dep.diff
