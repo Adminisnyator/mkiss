@@ -1,10 +1,15 @@
 #!/bin/sh -uxe
 export DESTDIR="$1"
 
+export CFLAGS+=" -ffat-lto-objects"
+export CXXFLAGS+=" -ffat-lto-objects"
+export LDFLAGS+=" -lsamplerate"
+
 cmake -B build -G Ninja \
     -D CMAKE_INSTALL_PREFIX=/usr \
     -D SDL_STATIC=OFF \
-    -D SDL-DLOPEN=ON \
+    -D SDL_RPATH=OFF \
+    -D SDL_LIBSAMPLERATE=0 \
     -D ARTS=OFF \
     -D ESD=OFF \
     -D NAS=OFF \
