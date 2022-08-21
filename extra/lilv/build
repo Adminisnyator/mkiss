@@ -1,10 +1,10 @@
 #!/bin/sh -uxe
+export DESTDIR="$1"
+export CFLAGS+=" -ffat-lto-objects"
+export CXXFLAGS+=" -ffat-lto-objects"
+meson build \
+    ${MESON_OPTIONS} \
+    -D docs=disabled
 
-./waf configure \
-    --prefix=/usr \
-    --no-bash-completion \
-    --dyn-manifest \
-    --test
-
-./waf build
-./waf install --destdir="$1"
+ninja -C build
+ninja -C build install
