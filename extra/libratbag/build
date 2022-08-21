@@ -1,0 +1,13 @@
+#!/bin/sh -uxe
+export DESTDIR="$1"
+export CFLAGS+=" -ffat-lto-objects"
+export CXXFLAGS+=" -ffat-lto-objects"
+
+meson build \
+    ${MESON_OPTIONS} \
+    -D tests=false \
+    -D systemd-unit-dir=/usr/lib/systemd/system \
+    -D documentation=false
+
+ninja -C build
+ninja -C build install

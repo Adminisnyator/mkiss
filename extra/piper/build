@@ -1,0 +1,12 @@
+#!/bin/sh -uxe
+export DESTDIR="$1"
+
+# Remove install script, this is handled by post-install
+sed -i "/meson.add_install_script('meson_install.sh')/d" meson.build
+
+meson build \
+    ${MESON_OPTIONS} \
+    -D tests=false
+
+ninja -C build
+ninja -C build install
