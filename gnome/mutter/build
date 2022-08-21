@@ -6,6 +6,7 @@ export LDFLAGS+=" -Wl,-Bsymbolic-functions"
 
 meson build \
     ${MESON_OPTIONS/-D b_lto=true/} \
+    -D profiler=false \
     -D egl_device=true \
     -D wayland_eglstream=false 
 
