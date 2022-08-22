@@ -2,3 +2,5 @@
 
 make check
 make DESTDIR="$1" install
+
+rm -rf "$1"/usr/share/libalpm
