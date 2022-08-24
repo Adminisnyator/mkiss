@@ -1,0 +1,6 @@
+#!/bin/sh -uxe
+
+cd flit_core
+python build_dists.py
+
+PIP_CONFIG_FILE=/dev/null pip install --isolated --root="${1}" --ignore-installed --no-deps dist/*.whl

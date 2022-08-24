@@ -1,5 +1,5 @@
 #!/bin/sh -uxe
 
-python setup.py build
+python -m build -nw
 
-python setup.py install --prefix=/usr --root="$1" --optimize=1
+python -m installer --destdir="$1" dist/*.whl
