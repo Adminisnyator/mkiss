@@ -1,11 +1,4 @@
 #!/bin/sh -uxe
 
-autoreconf -fiv
-
-./configure \
-    --prefix=/usr
-
-sed -i "s| -shared | ${LDFLAGS}\0|g" libtool
-
-make
-make DESTDIR="$1" install
+python setup.py build
+python setup.py install --root="$1" --optimize=1 --skip-build
