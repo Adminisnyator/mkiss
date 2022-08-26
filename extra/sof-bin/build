@@ -1,9 +1,15 @@
 #!/bin/sh -uxe
 :>nostrip
 
-export FW_DEST="$1"/usr/lib/firmware/intel 
-export TOOLS_DEST="$1"/usr/bin
+export fwdir="$1/usr/lib/firmware/intel"
+mkdir -p $fwdir
 
-mkdir -p "$FW_DEST" "$TOOLS_DEST"
+cp -at "$fwdir" sof-tplg
+ln -sr "$fwdir"/{sof-tplg,sof-tplg-$2}
 
-./install.sh v$2 || zsh
+cd sof
+
+cp -at "$fwdir" sof-v${2%.*}
+ln -sr "$fwdir"/{sof-v${2%.*},sof}
+
+install -Dt "$1"/usr/bin tools-v${2%.*}/*
