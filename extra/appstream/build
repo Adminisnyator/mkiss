@@ -1,0 +1,13 @@
+#!/bin/sh -uxe
+export DESTDIR="$1"
+
+cd AppStream-$2
+
+meson build \
+    ${MESON_OPTIONS} \
+    -D qt=true \
+    -D vapi=true \
+    -D compose=true
+
+ninja -C build 
+ninja -C build install
