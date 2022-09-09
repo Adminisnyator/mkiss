@@ -1,6 +1,7 @@
 #!/bin/sh -uxe
-export KBUILD_BUILD_HOST=`hostname`
-export KBUILD_BUILD_USER=`id -nu`
+KBUILD_BUILD_HOST="$(hostname)"
+KBUILD_BUILD_USER="$(id -nu)"
+export KBUILD_BUILD_HOST KBUILD_BUILD_USER
 export CC=gcc
 export CXX=g++
 export BUILD_LD="ld.bfd"
