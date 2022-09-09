@@ -3,7 +3,7 @@ _xmlcatalog() {
 }
 
 post_install() {
-  [[ -f etc/xml/catalog ]] || _xmlcatalog --create
+  [[ -f /etc/xml/catalog ]] || _xmlcatalog --create
 
   local ver x new=${1%-*}
 

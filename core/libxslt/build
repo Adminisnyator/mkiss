@@ -1,12 +1,14 @@
 #!/bin/sh -uxe
 
-git fetch
+patch -Np1 -i 0001-Make-generate-id-deterministic.patch
 
 NOCONFIGURE=1 ./autogen.sh
 
 ./configure \
 	--prefix=/usr \
-	--with-python \
+    --sysconfdir=/etc \
+    --localstatedir=/var \
+	--with-python=/usr/bin/python \
 	--disable-static
 
 sed -i "s/ -shared / $LDFLAGS\0/g" libtool

@@ -1,1 +1,2 @@
 git+https://gitlab.gnome.org/GNOME/libxslt.git#vVERSION
+patches/0001-Make-generate-id-deterministic.patch

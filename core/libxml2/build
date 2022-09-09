@@ -8,6 +8,7 @@ autoreconf -fiv
 
 ./configure \
 	--prefix=/usr \
+    --sysconfdir=/etc \
 	--with-threads \
 	--with-history \
 	--with-python \
