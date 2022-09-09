@@ -13,6 +13,9 @@ install -d "$1"/etc/{ssl/certs/{edk2,java},ca-certificates/extracted}
 # Used in preference to the individual links in /etc/ssl/certs
 ln -sr "$1/etc/ca-certificates/extracted/tls-ca-bundle.pem" "$1/etc/ssl/cert.pem"
 
-# Compatiblity link for legacy bundle
+# Compatiblity link for legacy bundle (Debian)
+ln -sr "$1/etc/ca-certificates/extracted/tls-ca-bundle.pem" "$1/etc/ssl/certs/ca-bundle.crt"
+
+# Compatiblity link for legacy bundle (RHEL)
 ln -sr "$1/etc/ca-certificates/extracted/tls-ca-bundle.pem" "$1/etc/ssl/certs/ca-certificates.crt"
 
