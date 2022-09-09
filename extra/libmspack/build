@@ -1,0 +1,12 @@
+#!/bin/sh -uxe
+
+cd libmspack
+
+autoreconf -fiv
+
+./configure \
+    --prefix=/usr \
+    --disable-static
+
+make
+make DESTDIR="$1" install

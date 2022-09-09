@@ -1,0 +1,5 @@
+#!/bin/sh -uxe
+
+make QMAKE=qmake-qt5
+
+make DESTDIR="$1" QMAKE=qmake-qt5 install

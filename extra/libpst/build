@@ -1,0 +1,13 @@
+#!/bin/sh -uxe
+
+patch -Np1 -i python310.patch
+
+./configure \
+    --prefix=/usr \
+    --mandir=/usr/share/man \
+    --disable-static \
+    --enable-libpst-shared \
+    --disable-dii
+
+make
+make DESTDIR="$1" install
