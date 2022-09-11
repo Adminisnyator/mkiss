@@ -1,5 +1,9 @@
 #!/bin/sh
 
 cat << EOF
-[NOTE] You will need to build and install this package twice to fix ensurepip.
+Installing pip via get-pip.py...
 EOF
+
+cd $(mktemp -d)
+curl -fLO https://bootstrap.pypa.io/get-pip.py
+python get-pip.py
