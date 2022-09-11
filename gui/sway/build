@@ -1,9 +1,6 @@
 #!/bin/sh -uxe
 export DESTDIR="$1"
 
-# Since this package needs wlroots git, make it use our custom wlroots-16 install
-patch -Np1 -i use-wlroots-16.patch
-
 meson build \
     -D prefix=/usr \
     -D man-pages=disabled \
