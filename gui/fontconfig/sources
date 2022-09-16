@@ -1,1 +1,2 @@
 git+https://gitlab.freedesktop.org/fontconfig/fontconfig.git#VERSION
+files/fontconfig.kiss-hook
