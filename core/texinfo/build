@@ -8,3 +8,5 @@ autoreconf -fiv
 
 make -j1
 make DESTDIR="$1" install
+
+install -Dm755 update-infodir.kiss-hook "$1"/etc/kiss-hooks/update-infodir
