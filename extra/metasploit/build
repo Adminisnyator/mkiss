@@ -1,5 +1,7 @@
 #!/bin/sh -uxe
 
+:>nostrip
+
 # https://github.com/bundler/bundler/issues/6882
 sed -e '/BUNDLED WITH/,+1d' -i Gemfile.lock
 
