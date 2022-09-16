@@ -1,8 +1,14 @@
 #!/bin/sh -uxe
 
+# Fix libz-sys
+export CFLAGS+=" -lz"
+export CXXFLAGS+=" -lz"
+export LDFLAGS+=" -lz"
+export RUSTFLAGS+=" -lz -L /usr/lib"
+
 cargo fetch \
 	--locked \
-	--target $CARCH-unknown-linux-gnu 
+	--target ${CARCH}-unknown-linux-gnu 
 
 cargo build \
 	--release \
@@ -16,3 +22,5 @@ install -dm755 "$1"/usr/share/{bash-completion/completions,zsh/site-functions}/
 
 ./target/release/starship completions zsh > "$1"/usr/share/zsh/site-functions/_starship
 
+# Fix erraneous libz-sys install location
+rm -rf "${1:?}"/home
