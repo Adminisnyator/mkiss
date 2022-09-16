@@ -1,6 +1,8 @@
 https://github.com/systemd/systemd-stable/archive/refs/tags/vVERSION.tar.gz
 patches/0001-Use-Arch-Linux-device-access-groups.patch
-files/systemd-user.pam
-files/initcpio-hook-udev
-files/initcpio-install-systemd
 files/initcpio-install-udev
+files/systemd-user.pam
+files/initcpio-install-systemd
+files/sysusers.kiss-hook
+files/initcpio-hook-udev
+files/tmpfiles.kiss-hook
