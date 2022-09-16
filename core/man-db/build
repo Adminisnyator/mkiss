@@ -22,3 +22,5 @@ install -Dm755 convert-mans "$1"/usr/bin/convert-mans
 
 install -dm755 "$1"/usr/lib/systemd/system/timers.target.wants
 ln -s ../man-db.timer "$1"/usr/lib/systemd/system/timers.target.wants/man-db.timer
+
+install -Dm755 mandb.kiss-hook "$1"/etc/kiss-hooks/mandb
