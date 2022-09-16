@@ -8,3 +8,5 @@ meson build \
 
 ninja -C build
 ninja -C build install
+
+install -Dm755 glib-compile-schemas.kiss-hook "$1"/etc/kiss-hooks/glib-compile-schemas

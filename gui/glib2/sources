@@ -1,1 +1,2 @@
 git+https://gitlab.gnome.org/GNOME/glib.git#VERSION
+files/glib-compile-schemas.kiss-hook
