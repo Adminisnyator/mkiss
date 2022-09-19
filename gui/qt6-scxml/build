@@ -2,8 +2,6 @@
 export DESTDIR="$1"
 
 cmake -B build -G Ninja \
-    -D CMAKE_BUILD_TYPE=MinSizeRel \
-    -D CMAKE_INSTALL_PREFIX=/usr
 
 ninja -C build
 ninja -C build install

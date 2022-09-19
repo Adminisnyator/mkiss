@@ -1,0 +1,15 @@
+#!/bin/sh -uxe
+export DESTDIR="$1"
+
+
+cmake -B build -G Ninja \
+    -D INSTALL_PUBLICBINDIR=/usr/bin \
+
+ninja -C build
+ninja -C build install
+
+mkdir -p "$1"/usr/bin
+
+for i in linguist designer pixeltool assistant qtplugininfo qdoc qdbus qdbusviewer qtdiag; do
+    ln -s /usr/lib/qt6/bin/$i "$1"/usr/bin/${i}6
+done
