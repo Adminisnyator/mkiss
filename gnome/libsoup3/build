@@ -6,10 +6,8 @@ export CXXFLAGS+=" -flto=auto -ffat-lto-objects"
 
 meson build \
     ${MESON_OPTIONS} \
-    -D gtk_doc=true \
     -D sysprof=disabled \
     -D autobahn=disabled \
-    -D http2_tests=disabled \
     -D ntlm=disabled
 
 ninja -C build
