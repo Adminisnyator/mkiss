@@ -1,0 +1,11 @@
+#!/bin/sh -uxe
+
+python -m build backend
+
+PIP_CONFIG_FILE=/dev/null \
+    pip install \
+    --isolated \
+    --root="$1" \
+    --ignore-installed \
+    --no-deps \
+    backend/dist/*.whl

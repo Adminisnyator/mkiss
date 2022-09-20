@@ -1,0 +1,25 @@
+#!/bin/sh -uxe
+
+sed -i "/ac_cpp=/s/\$CPPFLAGS/\$CPPFLAGS -O2/" libiberty/configure
+
+./configure \
+    --target=arm-none-eabi \
+    --with-sysroot=/usr/arm-none-eabi \
+    --prefix=/usr \
+    --enable-multilib \
+    --enable-interwork \
+    --with-gnu-as \
+    --with-gnu-ld \
+    --disable-nls \
+    --enable-ld=default \
+    --enable-gold \
+    --enable-plugins \
+    --enable-deterministic-archives
+
+make -O
+make DESTDIR="$1" install -O
+
+rm "$1"/usr/share/man/man1/arm-none-eabi-{dlltool,windres,windmc}*
+rm "$1"/usr/lib/bfd-plugins/libdep.so
+
+rm -rf "$1"/usr/share/info

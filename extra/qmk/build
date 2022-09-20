@@ -1,0 +1,7 @@
+#!/bin/sh -uxe
+
+make -C qmk_udev 
+make -C qmk_udev DESTDIR="$1" PREFIX=/usr install
+
+python -m build -nwx
+python -m installer -d="$1" --compile-bytecode=1 dist/*.whl

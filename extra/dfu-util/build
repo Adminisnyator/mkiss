@@ -1,0 +1,12 @@
+#!/bin/sh -uxe
+
+NOCONFIGURE=1 ./autogen.sh
+
+./configure \
+    --prefix=/usr
+
+make 
+make DESTDIR="$1" install
+
+install -Dm755 dfuse-pack.py "$1"/usr/bin/dfuse-pack
+install -Dm644 doc/60-dfuse.rules "$1"/usr/lib/udev/rules.d/60-dfuse.rules

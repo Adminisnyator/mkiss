@@ -1,0 +1,8 @@
+#!/bin/sh -uxe
+
+ar x via-$2-linux.deb
+tar -C "$1" -xpvf "$PWD"/data.tar.xz
+
+mkdir -p "$1"/usr/bin
+
+ln -s /opt/VIA/via-nativia "$1"/usr/bin/via-nativia

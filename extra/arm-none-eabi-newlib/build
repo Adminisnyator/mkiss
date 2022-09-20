@@ -1,0 +1,20 @@
+#!/bin/sh -uxe
+
+# Strip manually
+:>nostrip
+
+mkdir build
+cd build
+
+../configure \
+    --target=arm-none-eabi \
+    --prefix=/usr \
+    --enable-newlib-io-long-long \
+    --enable-newlib-io-c99-formats \
+    --enable-newlib-register-fini \
+    --enable-newlib-retargetable-locking \
+    --disable-newlib-supplied-syscalls \
+    --disable-nls
+
+make
+make DESTDIR="$1" install -j1 -O
