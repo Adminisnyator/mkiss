@@ -3,7 +3,9 @@ export DESTDIR="$1"
 
 meson build \
     ${MESON_OPTIONS/-D b_lto=true/} \
-    -D docs=true
+    -D docs=true \
+    -D gtk4=true \
+    -D gtk3=true
 
 ninja -C build
 ninja -C build install

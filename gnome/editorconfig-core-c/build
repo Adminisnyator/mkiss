@@ -1,0 +1,10 @@
+#!/bin/sh -uxe
+export DESTDIR="$1"
+
+export CFLAGS+=" -ffat-lto-objects"
+
+cmake -B build -G Ninja \
+    -D CMAKE_INSTALL_PREFIX=/usr 
+
+ninja -C build
+ninja -C build install

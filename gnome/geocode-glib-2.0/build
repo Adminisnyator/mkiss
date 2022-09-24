@@ -1,0 +1,15 @@
+#!/bin/sh -uxe
+export DESTDIR="$1"
+
+sed -i "s|gnome|Adwaita|" icons/meson.build
+
+meson build \
+    ${MESON_OPTIONS} \
+    -D enable-installed-tests=false \
+    -D soup2=false
+
+ninja -C build
+ninja -C build install
+
+# provided by geocode-glib
+rm -r "$1"/usr/share/icons

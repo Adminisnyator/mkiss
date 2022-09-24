@@ -1,14 +1,9 @@
 #!/bin/sh -uxe
+export DESTDIR="$1"
 
-NOCONFIGURE=1 ./autogen.sh
+meson build \
+    ${MESON_OPTIONS} \
+    -D ca_certificates=false
 
-./configure \
-    --prefix=/usr \
-    --sysconfdir=/etc \
-    --enable-gtk-doc \
-    --without-ca-certificates
-
-sed -i "s| -shared | ${LDFLAGS}\0|g" libtool
-
-make
-make DESTDIR="$1" install
+ninja -C build
+ninja -C build install

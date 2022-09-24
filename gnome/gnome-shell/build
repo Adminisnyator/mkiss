@@ -9,7 +9,7 @@ meson build \
     -D gtk_doc=true \
     -D systemd=true \
     -D tests=false \
-    --buildtype release
+    --buildtype release || zsh
 
 ninja -C build
 ninja -C build install

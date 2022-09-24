@@ -1,0 +1,21 @@
+#!/bin/sh -uxe
+export DESTDIR="$1"
+
+# Add minimal debug info
+export CFLAGS+=" -g1"
+export CXXFLAGS+=" -g1"
+
+cmake -B build -G Ninja \
+    -D PORT=GTK \
+    -D CMAKE_BUILD_TYPE=Release \
+    -D CMAKE_INSTALL_PREFIX=/usr \
+    -D CMAKE_INSTALL_LIBDIR=lib \
+    -D CMAKE_INSTALL_LIBEXECDIR=lib \
+    -D CMAKE_SKIP_RPATH=ON \
+    -D USE_GTK4=ON \
+    -D ENABLE_GTKDOC=OFF \
+    -D ENABLE_MINIBROWSER=ON 
+
+# Limit to 8 threads to avoid brutal RAM slaughtering
+ninja -C build -j8
+ninja -C build install
