@@ -4,7 +4,7 @@ export DESTDIR="$1"
 cd AppStream-"$2"
 
 meson build \
-    "${MESON_OPTIONS}" \
+    ${MESON_OPTIONS} \
     -D qt=true \
     -D vapi=true \
     -D compose=true
