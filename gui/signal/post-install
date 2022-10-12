@@ -1,0 +1,4 @@
+#!/bin/sh -e
+
+# Set uid for chrome sandbox
+chmod u+x /usr/lib/signal-desktop/chrome-sandbox

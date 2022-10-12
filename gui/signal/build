@@ -1,0 +1,21 @@
+#!/bin/sh -uxe
+
+git lfs install
+
+# allow newer nodejs versions
+sed -i 's|"node": "|&>=|' package.json
+
+yarn install --ignore-engines
+
+yarn generate 
+yarn build
+
+install -dm755 "$1"/usr/{lib,bin}
+cp -a release/linux-unpacked "$1"/usr/lib/signal-desktop
+ln -s /usr/lib/signal-desktop/signal-desktop "$1"/usr/bin/signal-desktop
+
+for i in 16 24 32 48 64 128 256 512 1024; do
+    install -Dm644 build/icons/png/${i}x${i}.png "$1"/usr/share/icons/hicolor/${i}x${i}/apps/signal-desktop.png
+done
+
+install -Dm644 signal-desktop.desktop "$1"/usr/share/applications/signal-desktop.desktop
