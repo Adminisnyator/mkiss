@@ -4,9 +4,13 @@
 	--prefix=/usr \
 	--disable-static \
 	--enable-hashes=strong,glibc \
-	--enable-obsolete-api=no \
+	--enable-obsolete-api=glibc \
 	--disable-failure-tokens \
     --disable-werror
 
 make
 make DESTDIR="$1" install
+
+# Yes, I am that lazy.
+
+ln -s /usr/lib/libcrypt.so.1 "$1"/usr/lib/libcrypt.so.2
