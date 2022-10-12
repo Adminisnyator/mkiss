@@ -1,0 +1,4 @@
+#!/bin/sh -xe
+
+# Allow running iotop as non-root user
+setcap 'cap_net_admin+eip' /usr/bin/iotop

@@ -1,0 +1,7 @@
+#!/bin/sh -uxe
+
+make
+make PREFIX="$1"/usr install
+
+# Makefile appears to be broken.
+mv "$1"/usr/{s,}bin
