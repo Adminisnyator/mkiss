@@ -3,7 +3,7 @@ export DESTDIR="$1"
 
 meson build \
     -D prefix=/usr \
-    -D man-pages=disabled \
+    -D man-pages=enabled \
     -D werror=false
 
 ninja -C build --verbose 
