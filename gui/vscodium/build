@@ -1,20 +1,20 @@
 #!/bin/sh -uxe
 
-# Move bundled vs code into place
-cd vscodium
-rm -rf vscode
-mv ../vscode vscode
-
 # Use Microsoft extension gallery
-patch -p1 -i ../use-microsoft-vscode-gallery.patch
+patch -p1 -i use-microsoft-vscode-gallery.patch
 
 # Set env variables that would normally be set by Travis
 export SHOULD_BUILD="yes"
-export VSCODE_ARCH="x64"
 export OS_NAME="linux"
 
 # Skip packages for other distributions
 export SKIP_LINUX_PACKAGES="True"
+
+# Set version, type and architecture
+export VSCODE_ARCH="x64"
+export CI_BUILD="no"
+export VSCODE_QUALITY="stable"
+export RELEASE_VERSION="${2}"
 
 which nvm > /dev/null 2>&1 && nvm deactivate && nvm unload
 export NVM_DIR=$PWD/.nvm
@@ -23,6 +23,7 @@ source /usr/share/nvm/init-nvm.sh || [[ $! != 1 ]]
 nvm install $(cat .nvmcr)
 nvm use
 
+./get_repo.sh
 ./build.sh
 
 mkdir -p "$1/usr/bin" "$1/usr/share/vscodium" "$1/usr/share/applications" "$1/usr/share/pixmaps"
@@ -32,6 +33,6 @@ ln -s /usr/share/vscodium/bin/codium "$1/usr/bin/codium"
 ln -s /usr/share/vscodium/bin/codium "$1/usr/bin/vscodium"
 ln -s /usr/share/vscodium/bin/codium "$1/usr/bin/code"
 
-install -Dm644 ../vscodium.desktop "$1/usr/share/applications/vscodium.desktop"
+install -Dm644 vscodium.desktop "$1/usr/share/applications/vscodium.desktop"
 install -Dm644 VSCode-linux-x64/resources/app/resources/linux/code.png \
     "$1/usr/share/pixmaps/vscodium.png"
