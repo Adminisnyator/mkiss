@@ -30,7 +30,6 @@ meson build \
     -D sanlock=disabled \
     -D secdriver_apparmor=disabled \
     -D secdriver_selinux=disabled \
-    -D storage_sheepdog=disabled \
     -D storage_vstorage=disabled \
     -D dtrace=disabled \
     -D numad=disabled \
