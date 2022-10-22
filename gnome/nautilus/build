@@ -6,6 +6,7 @@ git submodule update --init --recursive
 meson build \
     ${MESON_OPTIONS/-D b_lto=true/} \
     -D docs=true \
+    -D extensions=true \
     -D packagekit=false
 
 ninja -C build
