@@ -1,2 +1,2 @@
-https://github.com/nmeum/android-tools/releases/download/VERSION/android-tools-VERSION.tar.xz
+git+https://github.com/nmeum/android-tools#VERSION
 patches/gcc12.patch

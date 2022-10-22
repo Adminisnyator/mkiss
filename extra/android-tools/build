@@ -1,7 +1,8 @@
 #!/bin/sh -uxe
 export DESTDIR="$1"
 
-patch -Np1 -i gcc12.patch
+git submodule init
+git submodule update --recursive
 
 cmake -B build -G Ninja \
     -D CMAKE_INSTALL_PREFIX=/usr \
