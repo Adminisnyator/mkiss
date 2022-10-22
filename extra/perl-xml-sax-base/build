@@ -1,4 +1,4 @@
-#!/bin/sh -uxe
+#!/bin/bash -uxe
 
 PERL_MM_USE_DEFAULT=1 perl Makefile.PL INSTALLDIRS=vendor
 

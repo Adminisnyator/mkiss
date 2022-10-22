@@ -1,4 +1,4 @@
-#!/bin/sh -uxe
+#!/bin/bash -uxe
 
 sed -i 's|$(libibus) $(libibus_emoji_dialog)|$(libibus_emoji_dialog) $(libibus)|' ui/gtk3/Makefile.am
 

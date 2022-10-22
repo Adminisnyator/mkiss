@@ -1,4 +1,4 @@
-#!/bin/sh -uxe
+#!/bin/bash -uxe
 
 make -C lib PREFIX=/usr
 make -C programs PREFIX=/usr lz4 lz4c

@@ -1,4 +1,4 @@
-#!/bin/sh -uxe
+#!/bin/bash -uxe
 
 # Remove git tree to fix Makefile issues
 rm -rf .git

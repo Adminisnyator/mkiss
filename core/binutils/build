@@ -1,4 +1,4 @@
-#!/bin/sh -uxe
+#!/bin/bash -uxe
 
 # Disable development mode
 sed -i '/^development=/s/true/false/' bfd/development.sh

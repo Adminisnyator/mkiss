@@ -1,4 +1,4 @@
-#!/bin/sh -uxe
+#!/bin/bash -uxe
 
 sed -i "/&CONFIGURE_DEFINES=/s/set/env/g" configure.ac
 

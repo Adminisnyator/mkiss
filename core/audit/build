@@ -1,4 +1,4 @@
-#!/bin/sh -uxe
+#!/bin/bash -uxe
 
 cp /usr/include/linux/audit.h lib/audit.h
 

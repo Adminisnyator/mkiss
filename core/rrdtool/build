@@ -1,4 +1,4 @@
-#!/bin/sh -uxe
+#!/bin/bash -uxe
 
 sed 's|$(RUBY) ${abs_srcdir}/ruby/extconf.rb|& --vendor|' -i bindings/Makefile.am
 

@@ -1,4 +1,4 @@
-#!/bin/sh -uxe
+#!/bin/bash -uxe
 
 meson build \
     ${MESON_OPTIONS} \

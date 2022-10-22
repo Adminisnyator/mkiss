@@ -1,4 +1,4 @@
-#!/bin/sh -uxe
+#!/bin/bash -uxe
 
 sed -s "/init\.d/s|^|#|" misc/Makefile.in
 

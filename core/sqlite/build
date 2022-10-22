@@ -1,4 +1,4 @@
-#!/bin/sh -uxe
+#!/bin/bash -uxe
 
 export CPPFLAGS="-DSQLITE_ENABLE_COLUMN_METADATA=1 \
 	    	-DSQLITE_ENABLE_UNLOCK_NOTIFY \

@@ -1,4 +1,4 @@
-#!/bin/sh -uxe
+#!/bin/bash -uxe
 
 make PREFIX=/usr LDFLAGS="$LDFLAGS"
 make PREFIX=/usr DESTDIR="$1" install

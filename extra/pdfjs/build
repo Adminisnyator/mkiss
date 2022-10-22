@@ -1,4 +1,4 @@
-#!/bin/sh -uxe
+#!/bin/bash -uxe
 
 unzip pdfjs-${2}-dist.zip
 

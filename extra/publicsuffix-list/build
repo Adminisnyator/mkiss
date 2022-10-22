@@ -1,4 +1,4 @@
-#!/bin/sh -uxe
+#!/bin/bash -uxe
 
 install -Dm644 public_suffix_list.dat tests/test_psl.txt -t "$1/usr/share/publicsuffix"
 

@@ -1,4 +1,4 @@
-#!/bin/sh -uxe
+#!/bin/bash -uxe
 
 echo "CFLAGS=${CFLAGS@Q}" >> configure.local
 echo "LDFLAGS=${LDFLAGS@Q}" >> configure.local

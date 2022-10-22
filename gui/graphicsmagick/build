@@ -1,4 +1,4 @@
-#!/bin/sh -uxe
+#!/bin/bash -uxe
 
 sed -i "s|freetype_config=''|freetype_config='/usr/bin/pkg-config freetype2'|g" configure
 

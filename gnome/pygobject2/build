@@ -1,4 +1,4 @@
-#!/bin/sh -uxe
+#!/bin/bash -uxe
 
 find . \( -name '*.py' -o -name '*.py.pin' \) -exec sed -i '1s|python$|&2|' {} +
 

@@ -1,4 +1,4 @@
-#!/bin/sh -uxe
+#!/bin/bash -uxe
 
 echo "${2}" > .tarball-version
 echo "${2}" > .version

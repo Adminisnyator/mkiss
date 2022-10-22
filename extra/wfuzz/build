@@ -1,4 +1,4 @@
-#!/bin/sh -uxe
+#!/bin/bash -uxe
 
 install -dm755 "$1/usr/share/wfuzz/wordlists"
 cp -prt "$1/usr/share/wfuzz/wordlists" wordlist/*

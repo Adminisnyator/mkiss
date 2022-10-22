@@ -1,4 +1,4 @@
-#!/bin/sh -uxe
+#!/bin/bash -uxe
 export DESTDIR="$1"
 
 sed "/CMAKE_BUILD_TYPE Release/d" -i CMakeLists.txt

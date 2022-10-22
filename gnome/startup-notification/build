@@ -1,4 +1,4 @@
-#!/bin/sh -uxe
+#!/bin/bash -uxe
 
 sed -i "/AC_PATH_XTRA/d" configure.in
 

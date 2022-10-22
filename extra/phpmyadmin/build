@@ -1,4 +1,4 @@
-#!/bin/sh -uxe
+#!/bin/bash -uxe
 
 export srcdir=$(pwd)
 _instdir="$1"/usr/share/webapps/phpMyAdmin

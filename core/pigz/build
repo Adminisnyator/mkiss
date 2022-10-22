@@ -1,4 +1,4 @@
-#!/bin/sh -uxe
+#!/bin/bash -uxe
 
 make
 install -Dm755 pigz "$1/usr/bin/pigz"

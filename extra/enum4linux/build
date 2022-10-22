@@ -1,4 +1,4 @@
-#!/bin/sh -uxe
+#!/bin/bash -uxe
 
 sed -i "s|polenum.py|polenum|" enum4linux.pl
 

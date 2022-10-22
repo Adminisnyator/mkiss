@@ -1,4 +1,4 @@
-#!/bin/sh -uxe
+#!/bin/bash -uxe
 
 bsdtar -xf *.zip
 export DTDDIR="usr/share/sgml/docbook-sgml-${2}"

@@ -1,4 +1,4 @@
-#!/bin/sh -uxe
+#!/bin/bash -uxe
 
 patch -Np1 -i libsidplay-1.36.59-gcc43.patch
 patch -Np1 -i g++-6_build.patch

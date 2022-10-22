@@ -1,4 +1,4 @@
-#!/bin/sh -uxe
+#!/bin/bash -uxe
 
 cd CL
 install -dm755 "$1"/usr/include/CL

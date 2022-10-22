@@ -1,4 +1,4 @@
-#!/bin/sh -uxe
+#!/bin/bash -uxe
 
 # use safe CFLAGS
 export CFLAGS="-march=x86-64 -mtune=generic -Os -pipe -fno-strict-aliasing"

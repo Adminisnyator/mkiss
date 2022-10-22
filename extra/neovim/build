@@ -1,4 +1,4 @@
-#!/bin/sh -uxe
+#!/bin/bash -uxe
 
 cmake -B build -G Ninja \
 	-D CMAKE_BUILD_TYPE=Release \

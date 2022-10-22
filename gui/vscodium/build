@@ -1,4 +1,4 @@
-#!/bin/sh -uxe
+#!/bin/bash -uxe
 
 # Use Microsoft extension gallery
 patch -p1 -i use-microsoft-vscode-gallery.patch

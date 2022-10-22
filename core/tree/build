@@ -1,4 +1,4 @@
-#!/bin/sh -uxe
+#!/bin/bash -uxe
 
 make
 make DESTDIR="$1/usr/bin"  MANDIR="$1/usr/share/man/man1" install

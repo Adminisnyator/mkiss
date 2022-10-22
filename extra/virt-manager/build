@@ -1,4 +1,4 @@
-#!/bin/sh -uxe
+#!/bin/bash -uxe
 
 python setup.py configure --default-hvs qemu,lxd
 python setup.py build

@@ -1,4 +1,4 @@
-#!/bin/sh -uxe
+#!/bin/bash -uxe
 
 patch -Np0 -i fix-memleak-in-plugin-scanning.patch
 

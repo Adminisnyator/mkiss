@@ -1,4 +1,4 @@
-#!/bin/sh -uxe
+#!/bin/bash -uxe
 cd src
 make
 make DESTDIR="$1" LIBSUBDIR=lib install install_headers

@@ -1,4 +1,4 @@
-#!/bin/sh -uxe
+#!/bin/bash -uxe
 
 # Valgrind does not like some flags
 export CFLAGS="${CFLAGS/-fno-plt/}"

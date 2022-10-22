@@ -1,4 +1,4 @@
-#!/bin/sh -uxe
+#!/bin/bash -uxe
 export CFLAGS+=" -fcommon"
 
 patch -Np1 -i fedora-fixes.patch

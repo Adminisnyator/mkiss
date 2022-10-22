@@ -1,4 +1,4 @@
-#!/bin/sh -uxe
+#!/bin/bash -uxe
 
 sed -i "s|/etc/sysconfig|/etc/conf.d|" prog/{detect/sensors-detect,init/{sensord,lm_sensors}.service}
 sed -i "s|EnvironmentFile=|EnvironmentFile=-|" prog/init/lm_sensors.service

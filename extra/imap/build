@@ -1,4 +1,4 @@
-#!/bin/sh -uxe
+#!/bin/bash -uxe
 
 sed  \
     -e 's|-g -fno-omit-frame-pointer -O6|\${CFLAGS}|' \

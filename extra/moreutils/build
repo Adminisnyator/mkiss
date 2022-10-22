@@ -1,4 +1,4 @@
-#!/bin/sh -uxe
+#!/bin/bash -uxe
 
 xslver="$(kiss l docbook-xsl | cut -d ' ' -f2 | cut -d '-' -f1)"
 

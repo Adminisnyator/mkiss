@@ -1,4 +1,4 @@
-#!/bin/sh -uxe
+#!/bin/bash -uxe
 
 # Remove existing installation if it exists
 kiss l asciidoc 2>&1 > /dev/null && kiss r asciidoc 

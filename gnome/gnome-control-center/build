@@ -1,4 +1,4 @@
-#!/bin/sh -uxe
+#!/bin/bash -uxe
 export DESTDIR="$1"
 
 sed -i "/installdir/s/'icons'/'pixmaps'/" panels/info-overview/meson.build

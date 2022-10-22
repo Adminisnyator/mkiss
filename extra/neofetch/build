@@ -1,4 +1,4 @@
-#!/bin/sh -uxe
+#!/bin/bash -uxe
 
 patch -Np0 -i add-mkiss.patch
 make DESTDIR="$1" install

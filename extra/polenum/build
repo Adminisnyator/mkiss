@@ -1,3 +1,3 @@
-#!/bin/sh -uxe
+#!/bin/bash -uxe
 
 install -Dm755 polenum.py "$1"/usr/bin/polenum

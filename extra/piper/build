@@ -1,4 +1,4 @@
-#!/bin/sh -uxe
+#!/bin/bash -uxe
 export DESTDIR="$1"
 
 # Remove install script, this is handled by post-install

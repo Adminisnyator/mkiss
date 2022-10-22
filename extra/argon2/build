@@ -1,4 +1,4 @@
-#!/bin/sh -uxe
+#!/bin/bash -uxe
 
 make OPTTARGET='none' LIBRARY_REL='lib'
 

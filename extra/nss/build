@@ -1,4 +1,4 @@
-#!/bin/sh -uxe
+#!/bin/bash -uxe
 
 export NSS_USE_SYSTEM_SQLITE=1
 export NSS_DISABLE_GTESTS=1

@@ -1,4 +1,4 @@
-#!/bin/sh -uxe
+#!/bin/bash -uxe
 
 mkdir -p "$1/etc/xml"
 xmlcatalog --noout --create "$1/etc/xml/docbook-xml"

@@ -1,4 +1,4 @@
-#!/bin/sh -uxe
+#!/bin/bash -uxe
 
 export BORG_OPENSSL_PREFIX=/usr/include/openssl
 

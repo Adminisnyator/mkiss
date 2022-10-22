@@ -1,4 +1,4 @@
-#!/bin/sh -uxe
+#!/bin/bash -uxe
 export DESTDIR="$1"
 
 install -dm755 "$1"/{opt/multimc,usr/{bin,share/applications}}

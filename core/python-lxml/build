@@ -1,4 +1,4 @@
-#!/bin/sh -uxe
+#!/bin/bash -uxe
 
 # set LC_CTYPE to work around encoding issue
 export LC_CTYPE=en_US.UTF-8

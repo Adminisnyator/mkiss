@@ -1,4 +1,4 @@
-#!/bin/sh -uxe
+#!/bin/bash -uxe
 
 make -C qmk_udev 
 make -C qmk_udev DESTDIR="$1" PREFIX=/usr install

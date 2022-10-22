@@ -1,4 +1,4 @@
-#!/bin/sh -uxe
+#!/bin/bash -uxe
 
 cat >> doc/sample.wgetrc << EOF
 # Default CA location

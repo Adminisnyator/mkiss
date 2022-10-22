@@ -1,4 +1,4 @@
-#!/bin/sh -uxe
+#!/bin/bash -uxe
 
 for ids in pci.ids pnp.ids usb.ids; do
     install -Dm644 $ids "$1"/usr/share/hwdata/$ids

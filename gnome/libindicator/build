@@ -1,4 +1,4 @@
-#!/bin/sh -uxe
+#!/bin/bash -uxe
 
 sed -i "s|-Werror||" {libindicator,tools}/Makefile.am
 autoreconf -fiv

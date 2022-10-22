@@ -1,4 +1,4 @@
-#!/bin/sh -uxe
+#!/bin/bash -uxe
 
 export CFLAGS="-march=native -mtune=native -O3 -Wno-error"
 export CXXFLAGS="$CFLAGS"

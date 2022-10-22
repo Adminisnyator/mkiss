@@ -1,4 +1,4 @@
-#!/bin/sh -uxe
+#!/bin/bash -uxe
 export DESTDIR="$1"
 
 # Fix build with fmt9

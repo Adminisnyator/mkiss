@@ -1,4 +1,4 @@
-#!/bin/sh -uxe
+#!/bin/bash -uxe
 
 make DESTDIR="$1" WITH_ALLCOMP=yes install
 

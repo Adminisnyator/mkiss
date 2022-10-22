@@ -1,4 +1,4 @@
-#!/bin/sh -uxe
+#!/bin/bash -uxe
 
 patch -Np1 -i responder.patch
 rm responder.patch

@@ -1,4 +1,4 @@
-#!/bin/sh -uxe
+#!/bin/bash -uxe
 
 sed -i "s|etc/bash_completion.d|share/bash-completion/completions|" setup.py
 

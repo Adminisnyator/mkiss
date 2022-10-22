@@ -1,4 +1,4 @@
-#!/bin/sh -uxe
+#!/bin/bash -uxe
 
 kiss l python-wheel && env KISS_FORCE=1 kiss r python-wheel
 

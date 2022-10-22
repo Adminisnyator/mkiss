@@ -1,4 +1,4 @@
-#!/bin/sh -uxe
+#!/bin/bash -uxe
 export LDFLAGS+=" -ludev"
 
 for i in *.patch; do

@@ -1,4 +1,4 @@
-#!/bin/sh -uxe
+#!/bin/bash -uxe
 
 install -Dt "$1"/usr/bin update-ca-trust
 

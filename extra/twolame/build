@@ -1,4 +1,4 @@
-#!/bin/sh -uxe
+#!/bin/bash -uxe
 
 # The `doc/html` subdirectory breaks with automake, so avoid building man pages
 patch -Np1 -i ignore-broken-doc-automake.patch

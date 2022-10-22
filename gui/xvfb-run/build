@@ -1,4 +1,4 @@
-#!/bin/sh -uxe
+#!/bin/bash -uxe
 
 install -Dm755 xvfb-run "$1"/usr/bin/xvfb-run
 install -Dm644 xvfb-run.1 "$1"/usr/share/man/man1/xvfb-run.1

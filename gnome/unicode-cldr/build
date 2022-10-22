@@ -1,4 +1,4 @@
-#!/bin/sh -uxe
+#!/bin/bash -uxe
 
 bsdtar -xf cldr-common-${2}.zip
 

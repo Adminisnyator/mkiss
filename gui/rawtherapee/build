@@ -1,4 +1,4 @@
-#!/bin/sh -uxe
+#!/bin/bash -uxe
 export DESTDIR="$1"
 
 patch -Np1 -i rawtherapee-glibc-2.34.patch

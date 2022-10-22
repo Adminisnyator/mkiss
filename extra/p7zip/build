@@ -1,4 +1,4 @@
-#!/bin/sh -uxe
+#!/bin/bash -uxe
 
 make OPTFLAGS="$CFLAGS" 7z 7zr 7za
 

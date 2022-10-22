@@ -1,4 +1,4 @@
-#!/bin/sh -uxe
+#!/bin/bash -uxe
 
 patch -Np1 -i efitools-1.9.2-console_warning_typo.patch
 

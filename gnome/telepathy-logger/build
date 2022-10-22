@@ -1,4 +1,4 @@
-#!/bin/sh -uxe
+#!/bin/bash -uxe
 
 patch -Np1 -i 0001-tools-Fix-the-build-with-Python-3.patch
 

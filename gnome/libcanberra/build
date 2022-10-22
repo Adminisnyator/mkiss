@@ -1,4 +1,4 @@
-#!/bin/sh -uxe
+#!/bin/bash -uxe
 
 # Patch through all commits manually, because of course
 # Poetterings Git is the only one not supporting shallow -.-

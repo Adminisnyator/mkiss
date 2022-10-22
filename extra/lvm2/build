@@ -1,4 +1,4 @@
-#!/bin/sh -uxe
+#!/bin/bash -uxe
 
 # prepare for non-systemd initramfs
 patch -Np1 --output='udev/69-dm-lvm-initcpio.rules.in' -i 0001-udev-initcpio.patch

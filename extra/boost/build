@@ -1,4 +1,4 @@
-#!/bin/sh -uxe
+#!/bin/bash -uxe
 
 pushd tools/build
 ./bootstrap.sh --cxxflags="${CXXFLAGS} ${LDFLAGS}"

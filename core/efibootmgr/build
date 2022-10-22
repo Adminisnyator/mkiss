@@ -1,4 +1,4 @@
-#!/bin/sh -uxe
+#!/bin/bash -uxe
 
 sed -e '/extern int efi_set_verbose/d' -i "src/efibootmgr.c"
 sed -i "s|Werror|Wno-error|g" Make.defaults

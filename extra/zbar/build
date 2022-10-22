@@ -1,4 +1,4 @@
-#!/bin/sh -uxe
+#!/bin/bash -uxe
 
 git fetch
 git cherry-pick -n 89e7900d

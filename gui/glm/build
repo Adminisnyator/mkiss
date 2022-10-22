@@ -1,4 +1,4 @@
-#!/bin/sh -uxe
+#!/bin/bash -uxe
 
 install -dm755 "$1"/usr/{include,share/doc,lib/pkgconfig,lib/cmake/glm}
 

@@ -1,4 +1,4 @@
-#!/bin/sh -uxe
+#!/bin/bash -uxe
 
 
 # We don't need the binaries, so we install into a throwaway dir 

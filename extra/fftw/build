@@ -1,4 +1,4 @@
-#!/bin/sh -uxe
+#!/bin/bash -uxe
 
 sed -i "s/3.6.9/3.6.10/g" src/CMakeLists.txt
 

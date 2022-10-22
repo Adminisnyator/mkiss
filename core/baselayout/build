@@ -1,4 +1,4 @@
-#!/bin/sh -uxe
+#!/bin/bash -uxe
 
 # Setup base directories.
 for d in boot dev etc home mnt usr var run; do

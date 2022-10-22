@@ -1,4 +1,4 @@
-#!/bin/sh -uxe
+#!/bin/bash -uxe
 
 CFLAGS="$CFLAGS -D_GNU_SOURCE" ./configure --prefix=/usr # GNU_SOURCE is needed for ipv6
 make

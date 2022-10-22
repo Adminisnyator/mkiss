@@ -1,4 +1,4 @@
-#!/bin/sh -uxe
+#!/bin/bash -uxe
 
 # Fix compilation with C++11 and newer
 patch -Np1 -i libvisual-0.4.0-inlinedefineconflict.patch

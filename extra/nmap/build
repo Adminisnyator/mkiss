@@ -1,4 +1,4 @@
-#!/bin/sh -uxe
+#!/bin/bash -uxe
 
 rm -rf liblua libpcap libpcre macosx mwin32 libssh2 libz
 

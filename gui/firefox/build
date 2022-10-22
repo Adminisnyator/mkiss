@@ -1,4 +1,4 @@
-#!/bin/sh -uxe
+#!/bin/bash -uxe
 
 cat > mozconfig << EOF
 ac_add_options --enable-application=browser

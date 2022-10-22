@@ -1,4 +1,4 @@
-#!/bin/sh -uxe
+#!/bin/bash -uxe
 
 # Grub is built in a function so the script argument
 # needs to be stored.

@@ -1,4 +1,4 @@
-#!/bin/sh -uxe
+#!/bin/bash -uxe
 
 sed -e 's|User daemon|User http|' \
     -e 's|Group daemon|Group http|' \

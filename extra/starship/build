@@ -1,4 +1,4 @@
-#!/bin/sh -uxe
+#!/bin/bash -uxe
 
 # Fix libz-sys
 export CFLAGS+=" -ffat-lto-objects -lz-ng"

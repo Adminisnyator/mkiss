@@ -1,4 +1,4 @@
-#!/bin/sh -uxe
+#!/bin/bash -uxe
 KBUILD_BUILD_HOST="$(hostname)"
 KBUILD_BUILD_USER="$(id -nu)"
 export KBUILD_BUILD_HOST KBUILD_BUILD_USER

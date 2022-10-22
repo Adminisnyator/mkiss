@@ -1,4 +1,4 @@
-#!/bin/sh -uxe
+#!/bin/bash -uxe
 
 sed -i 's|usr/share/keymaps|/usr/share/kbd/keymaps|g' Completion/Unix/Command/_loadkeys 
 sed -i 's|/usr/share/misc/usb.ids|/usr/share/hwdata/usb.ids|g' Completion/Linux/Command/_lsusb

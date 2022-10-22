@@ -1,4 +1,4 @@
-#!/bin/sh -uxe
+#!/bin/bash -uxe
 
 rm -f intel-ucode{,with-caveats}/list
 

@@ -1,4 +1,4 @@
-#!/bin/sh -uxe
+#!/bin/bash -uxe
 
 # Init script 
 install -Dm644 init-nvm.sh "$1/usr/share/nvm/init-nvm.sh"

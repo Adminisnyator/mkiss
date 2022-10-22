@@ -1,4 +1,4 @@
-#!/bin/sh -uxe
+#!/bin/bash -uxe
 
 patch -p2 -i 0001-Use-the-system-zoneinfo-from-the-tzdata-package.patch
 rm -r pytz/zoneinfo

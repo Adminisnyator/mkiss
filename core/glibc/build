@@ -1,4 +1,4 @@
-#!/bin/sh -uxe
+#!/bin/bash -uxe
 # vim:fdm=marker
 
 export CFLAGS="${CFLAGS/-Wp,-D_FORTIFY_SOURCE=2/}"

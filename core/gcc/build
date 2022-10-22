@@ -1,4 +1,4 @@
-#!/bin/sh -uxe
+#!/bin/bash -uxe
 
 # Do not run fixinclude
 sed -i "s|\./fixinc\.sh|-c true|" gcc/gcc/Makefile.in

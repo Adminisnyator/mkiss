@@ -1,4 +1,4 @@
-#!/bin/sh -uxe
+#!/bin/bash -uxe
 export DESTDIR="$1"
 
 sed "/examples/d;/third_party/d" -i CMakeLists.txt

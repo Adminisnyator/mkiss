@@ -1,4 +1,4 @@
-#!/bin/sh -uxe
+#!/bin/bash -uxe
 
 CFLAGS="-march=${CARCH/_/-} -mtune=generic -O2 -pipe"
 make

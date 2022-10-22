@@ -1,4 +1,4 @@
-#!/bin/sh -uxe
+#!/bin/bash -uxe
 
 make DEFAULTFONTDIR=/usr/share/figlet/fonts all
 

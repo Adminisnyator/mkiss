@@ -1,4 +1,4 @@
-#!/bin/sh -uxe
+#!/bin/bash -uxe
 
 sed -i "s|prefix := /usr/local|prefix := /usr|g" Makefile
 

@@ -1,4 +1,4 @@
-#!/bin/sh -uxe
+#!/bin/bash -uxe
 
 python3 setup.py linux-package --update-check-interval=0
 

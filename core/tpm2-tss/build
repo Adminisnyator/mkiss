@@ -1,4 +1,4 @@
-#!/bin/sh -uxe
+#!/bin/bash -uxe
 
 cp tss2-tcti-libtpms.map lib/
 
