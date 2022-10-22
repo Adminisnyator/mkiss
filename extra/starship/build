@@ -1,10 +1,8 @@
 #!/bin/sh -uxe
 
 # Fix libz-sys
-export CFLAGS+=" -lz"
-export CXXFLAGS+=" -lz"
-export LDFLAGS+=" -lz"
-export RUSTFLAGS+=" -lz -L /usr/lib"
+export CFLAGS+=" -ffat-lto-objects -lz-ng"
+export RUSTFLAGS+=" -lz-ng -L /usr/lib"
 
 cargo fetch \
 	--locked \
