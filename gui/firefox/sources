@@ -1,5 +1,4 @@
 https://archive.mozilla.org/pub/firefox/releases/VERSION/source/firefox-VERSION.source.tar.xz
 files/identity-icons-brand.svg
 files/firefox.desktop
-patches/arc4random.diff
 patches/zstandard-0.18.0.diff

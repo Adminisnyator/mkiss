@@ -7,5 +7,5 @@ meson build \
     -D soup=soup2 \
     -D man=false
 
-ninja -C build -j1
+ninja -C build 
 ninja -C build install
