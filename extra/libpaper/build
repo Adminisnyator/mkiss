@@ -1,0 +1,25 @@
+#!/bin/sh -uxe
+
+autoreconf -fiv
+
+./configure \
+    --prefix=/usr \
+    --sysconfdir=/etc \
+    --sbindir=/usr/bin
+
+make
+make DESTDIR="$1" install
+
+install -dm755 "$1"/etc
+
+echo '# Simply write the paper name. See papersize(5) for possible values' > "$1"/etc/papersize
+
+install -dm755 "$1"/etc/libpaper.d
+
+# add localisation
+pushd debian/po
+for i in `ls *.po`; do
+ install -dm 755 "${1}"/usr/share/locale/${i%.po}/LC_MESSAGES/;
+  msgfmt $i -o "${1}"/usr/share/locale/${i%.po}/LC_MESSAGES/libpaper.mo;
+done
+popd
