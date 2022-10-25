@@ -1,5 +1,4 @@
 #!/bin/bash -uxe
 
-python setup.py build
-
-python setup.py install --root="$1" --optimize=1
+python -m build -nw
+python -m installer -d "$1" dist/*.whl
