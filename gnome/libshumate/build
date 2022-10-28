@@ -1,0 +1,8 @@
+#!/bin/sh -uxe
+
+meson build \
+    ${MESON_OPTIONS} \
+    -D demos=true
+
+ninja -C build
+ninja -C build install
