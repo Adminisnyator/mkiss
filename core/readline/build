@@ -1,6 +1,6 @@
 #!/bin/bash -uxe
 
-for i in readline81-*; do
+for i in readline82-*; do
     patch -p0 -i $i
 done
 
