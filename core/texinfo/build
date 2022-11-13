@@ -1,6 +1,6 @@
 #!/bin/bash -uxe
 
-patch -Rp1 -i gnulib\?id=e3529d91abed939dde0975c0d71735b0fd0395fb 
+# patch -Rp1 -i gnulib\?id=e3529d91abed939dde0975c0d71735b0fd0395fb 
 
 autoreconf -fiv
 
