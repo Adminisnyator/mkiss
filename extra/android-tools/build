@@ -1,9 +1,6 @@
 #!/bin/bash -uxe
 export DESTDIR="$1"
 
-git submodule init
-git submodule update --recursive
-
 cmake -B build -G Ninja \
     -D CMAKE_INSTALL_PREFIX=/usr \
     -D CMAKE_BUILD_TYPE=Release \
