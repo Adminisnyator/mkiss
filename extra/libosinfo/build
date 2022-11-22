@@ -1,6 +1,8 @@
 #!/bin/sh -uxue
 export DESTDIR="$1"
 
+patch -Np1 -i use_soup3.patch
+
 meson build \
     ${MESON_OPTIONS} \
     -D with-usb-ids-path=/usr/share/hwdata/usb.ids \

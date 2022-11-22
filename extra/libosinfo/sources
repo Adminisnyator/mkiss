@@ -1,1 +1,2 @@
 https://releases.pagure.org/libosinfo/libosinfo-VERSION.tar.xz
+patches/use_soup3.patch
