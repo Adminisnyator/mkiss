@@ -1,0 +1,10 @@
+#!/bin/sh -uxe
+
+./configure \
+    --prefix=/usr \
+    --enable-libacl \
+    --enable-xattr \
+    --disable-static
+
+make
+make DESTDIR="$1" install
