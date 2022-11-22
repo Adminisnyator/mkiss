@@ -1,0 +1,16 @@
+#!/bin/sh -uxe
+export DESTDIR="$1"
+export CFLAGS+=" -ffat-lto-objects"
+export CXXFLAGS+=" -ffat-lto-objects"
+
+git fetch
+git cherry-pick -n 1978973b12848741b08695ec2020bac98584d636
+
+meson build \
+    ${MESON_OPTIONS}
+
+ninja -C build
+ninja -C build install
+
+python -m compileall -d /usr/lib "$1/usr/lib"
+python -O -m compileall -d /usr/lib "$1/usr/lib"
