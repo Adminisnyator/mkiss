@@ -1,0 +1,18 @@
+#!/bin/sh -uxe
+
+intltoolize --automake --copy
+autoreconf -fiv
+
+
+./configure \
+    --prefix=/usr \
+    --sysconfdir=/etc \
+    --localstatedir=/var \
+    --libexecdir=/usr/lib \
+    --disable-static \
+    --with-gtk4
+
+make
+make DESTDIR="$1" install
+
+echo 'u nm-openvpn - "NetworkManager OpenVPN"' | install -Dm644 /dev/stdin "$1"/usr/lib/sysusers.d/networkmanager-openvpn.conf 
