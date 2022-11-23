@@ -1,0 +1,22 @@
+#!/bin/bash -uxe
+
+# rename keymap files with the same name
+ mv data/keymaps/i386/qwertz/cz{,-qwertz}.map
+mv data/keymaps/i386/olpc/es{,-olpc}.map
+mv data/keymaps/i386/olpc/pt{,-olpc}.map
+mv data/keymaps/i386/fgGIod/trf{,-fgGIod}.map
+mv data/keymaps/i386/colemak/{en-latin9,colemak}.map
+
+patch -Np1 -i fix-euro2.patch
+
+autoreconf -fiv
+
+./configure \
+    --prefix=/usr \
+    --sysconfdir=/etc \
+    --datadir=/usr/share/kbd \
+    --mandir=/usr/share/man
+
+make KEYCODES_PROGS=yes RESIZECONS_PROGS=yes
+make KEYCODES_PROGS=yes RESIZECONS_PROGS=yes DESTDIR="$1" install
+install -Dm644 vlock.pam "$1"/etc/pam.d/vlock

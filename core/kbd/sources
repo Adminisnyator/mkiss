@@ -1,0 +1,3 @@
+git+https://git.kernel.org/pub/scm/linux/kernel/git/legion/kbd.git#vVERSION
+patches/fix-euro2.patch
+files/vlock.pam
