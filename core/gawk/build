@@ -1,8 +1,5 @@
 #!/bin/bash -uxe
 
-# Fix linux-kernel build
-patch -Np1 -i 0001-Add-missing-UPREF.patch
-
 ./configure \
     --prefix=/usr \
     --sysconfdir=/etc
