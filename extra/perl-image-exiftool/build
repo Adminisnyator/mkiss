@@ -7,3 +7,6 @@ make DESTDIR="$1" install
 
 install -dm755 "$1"/usr/share/perl-image-exiftool
 cp -r fmt_files config_files arg_files "$1"/usr/share/perl-image-exiftool
+
+# Remove perllocal.pod if it exists
+rm "$1"/usr/lib/perl5/perllocal.pod || true
