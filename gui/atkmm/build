@@ -2,7 +2,7 @@
 export DESTDIR="$1"
 
 
-meson build \
+meson setup build \
     -D maintainer-mode=true \
     -D build-documentation=false \
     ${MESON_OPTIONS}

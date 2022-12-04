@@ -6,7 +6,7 @@ sed -i "/installdir/s/'icons'/'pixmaps'/" panels/info-overview/meson.build
 git submodule init
 git submodule update 
 
-meson build \
+meson setup build \
     ${MESON_OPTIONS/-D b_lto=true/} 
 
 ninja -C build

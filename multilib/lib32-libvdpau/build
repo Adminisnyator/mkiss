@@ -3,7 +3,7 @@ export DESTDIR="$1"
 
 source /etc/kiss-flags/multilib.sh
 
-meson build \
+meson setup build \
     ${MESON_32_OPTIONS} 
 
 ninja -C build

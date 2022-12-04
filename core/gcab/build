@@ -4,7 +4,7 @@ export DESTDIR="$1"
 # Fix meson
 patch -Np1 -i ad0baea50359c1978a9224ee60bf98d97bfb991f.patch
 
-meson build \
+meson setup build \
 	${MESON_OPTIONS}
 
 ninja -C build

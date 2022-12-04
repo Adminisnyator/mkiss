@@ -6,7 +6,7 @@ export CXXFLAGS+=" -flto=auto -ffat-lto-objects"
 source /etc/kiss-flags/multilib.sh
 export PKG_CONFIG="i686-pc-linux-gnu-pkg-config"
 
-meson build \
+meson setup build \
     ${MESON_32_OPTIONS} \
     -D headers=false \
     -D gles1=false

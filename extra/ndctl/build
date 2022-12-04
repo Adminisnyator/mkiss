@@ -5,7 +5,7 @@ sed -i "s|^modprobedir =.*|modprobedir = /usr/lib/modprobe.d/|" contrib/meson.bu
 
 export CFLAGS+=" -ffat-lto-objects" 
 
-meson build \
+meson setup build \
     ${MESON_OPTIONS}
 
 ninja -C build

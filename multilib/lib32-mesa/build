@@ -12,7 +12,7 @@ cat > crossfile.ini << EOF
 llvm-config = '/usr/bin/llvm-config32'
 EOF
 
-meson build \
+meson setup build \
     ${MESON_32_OPTIONS} \
     --native-file crossfile.ini \
     -D b_ndebug=true \

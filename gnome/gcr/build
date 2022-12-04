@@ -2,7 +2,7 @@
 export DESTDIR="$1"
 
 # Do not build ssh_agent to avoid gcr-4 conflict
-meson build \
+meson setup build \
     ${MESON_OPTIONS/-D b_lto=true/} \
     -D systemd=enabled \
     -D ssh_agent=false

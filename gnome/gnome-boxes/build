@@ -1,6 +1,6 @@
 #!/bin/bash -uxe
 
-meson build \
+meson setup build \
     ${MESON_OPTIONS/-D b_lto=true/}
 
 ninja -C build

@@ -4,7 +4,7 @@ export DESTDIR="$1"
 # Fix build with fmt9
 patch -Np1 -i 24a8332b62b5c1c8d480116655ce9c582d1f4516.patch
 
-meson build \
+meson setup build \
     --prefix=/usr \
     --buildtype=plain \
     --auto-features=enabled \

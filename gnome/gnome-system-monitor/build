@@ -3,7 +3,7 @@ export DESTDIR="$1"
 export CFLAGS+=" -flto=auto -ffat-lto-objects"
 export CXXFLAGS+=" -flto=auto -ffat-lto-objects"
 
-meson build \
+meson setup build \
     ${MESON_OPTIONS}
 
 ninja -C build

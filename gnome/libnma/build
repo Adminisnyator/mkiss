@@ -1,7 +1,7 @@
 #!/bin/bash -uxe
 export DESTDIR="$1"
 
-meson build \
+meson setup build \
     ${MESON_OPTIONS/-D b_lto=true/} \
     -D mobile_broadband_provider_info=true \
     -D libnma_gtk4=true

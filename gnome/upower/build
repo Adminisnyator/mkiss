@@ -9,7 +9,7 @@ export DESTDIR="$1"
     #--disable-static \
     #--enable-gtk-doc
 
-meson build \
+meson setup build \
     ${MESON_OPTIONS/-D b_lto=true/} \
     -D gtk-doc=true \
     -D idevice=disabled

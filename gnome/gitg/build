@@ -6,7 +6,7 @@ export CXXFLAGS+=" -ffat-lto-objects"
 git fetch
 git cherry-pick -n 1978973b12848741b08695ec2020bac98584d636
 
-meson build \
+meson setup build \
     ${MESON_OPTIONS}
 
 ninja -C build

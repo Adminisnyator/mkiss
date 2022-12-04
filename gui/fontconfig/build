@@ -1,7 +1,7 @@
 #!/bin/bash -uxe
 export DESTDIR="$1"
 
-meson build \
+meson setup build \
 	-D doc=disabled \
 	-D cache-build=disabled \
 	${MESON_OPTIONS}

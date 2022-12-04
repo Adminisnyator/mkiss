@@ -3,7 +3,7 @@ export DESTDIR="$1"
 
 export CFLAGS+=" -Wno-implicit-function-declaration"
 
-meson build \
+meson setup build \
     ${MESON_OPTIONS/-D b_lto=true/} \
     --libexecdir /usr/lib/gamemode \
     -D with-examples=false \

@@ -2,7 +2,7 @@
 export DESTDIR="$1"
 export CFLAGS+=" -ffat-lto-objects"
 export CXXFLAGS+=" -ffat-lto-objects"
-meson build \
+meson setup build \
     ${MESON_OPTIONS} \
     -D docs=disabled
 

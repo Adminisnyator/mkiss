@@ -7,7 +7,7 @@ export DESTDIR="$PWD/output"
 
 echo 15.0>.tarball-version
 
-meson build \
+meson setup build \
     -D doxygen=false \
     -D pulsedsp-location='/usr/lib/\$LIB/pulseaudio' \
     -D gtk=disabled \

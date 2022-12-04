@@ -4,7 +4,7 @@ export DESTDIR="$1"
 # Remove install script, this is handled by post-install
 sed -i "/meson.add_install_script('meson_install.sh')/d" meson.build
 
-meson build \
+meson setup build \
     ${MESON_OPTIONS} \
     -D tests=false
 

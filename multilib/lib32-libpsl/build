@@ -2,7 +2,7 @@
 
 source /etc/kiss-flags/multilib.sh
 
-meson build \
+meson setup build \
     ${MESON_32_OPTIONS} \
     -D builtin=libidn2 \
     -D runtime=libidn2 \

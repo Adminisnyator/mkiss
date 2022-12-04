@@ -1,7 +1,7 @@
 #!/bin/bash -uxe
 export DESTDIR="$1"
 
-meson build \
+meson setup build \
     ${MESON_OPTIONS/-D b_lto=true/} \
     -D dbus-sys=/usr/share/dbus-1/system.d \
     -D default-pam-config=arch \

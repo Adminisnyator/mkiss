@@ -3,7 +3,7 @@ export DESTDIR="$1"
 
 sed -i "s|gnome|Adwaita|" icons/meson.build
 
-meson build \
+meson setup build \
     ${MESON_OPTIONS} \
     -D enable-installed-tests=false \
     -D soup2=false

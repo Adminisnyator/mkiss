@@ -3,7 +3,7 @@ export DESTDIR="$1"
 
 cp libstdc++.tag doctags
 
-meson build \
+meson setup build \
     ${MESON_OPTIONS} 
 
 ninja -C build

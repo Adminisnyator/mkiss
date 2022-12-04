@@ -9,7 +9,7 @@ sed -i "s/get_option('orc')/false/" meson.build
 git submodule init
 git submodule update --recursive
 
-meson build \
+meson setup build \
     ${MESON_OPTIONS} \
     -D devtools=disabled \
     -D doc=disabled \

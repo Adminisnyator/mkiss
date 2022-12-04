@@ -6,7 +6,7 @@ sed -i "s|usr/sbin|usr/bin|" data/spice-webdavd.service
 
 patch -Np1 -i  meson.patch
 
-meson build \
+meson setup build \
     ${MESON_OPTIONS}
 
 ninja -C build

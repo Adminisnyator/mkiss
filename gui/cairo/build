@@ -1,7 +1,7 @@
 #!/bin/bash -uxe
 export DESTDIR="$1"
 
-meson build \
+meson setup build \
     -D spectre=disabled \
     -D tee=enabled \
     -D tests=disabled \

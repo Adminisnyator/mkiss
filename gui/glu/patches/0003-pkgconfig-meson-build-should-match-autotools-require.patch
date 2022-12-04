@@ -1,7 +1,7 @@
 From 225e00a14a9200f11253775a7c7778c1c29c8b23 Mon Sep 17 00:00:00 2001
 From: Kevin Bowling <kevin.bowling@kev009.com>
 Date: Thu, 8 Jul 2021 22:05:12 -0700
-Subject: [PATCH 3/3] pkgconfig: meson build should match autotools requires
+Subject: [PATCH 3/3] pkgconfig: meson setup build should match autotools requires
 
 Signed-off-by: Laurent Carlier <lordheavym@gmail.com>
 ---

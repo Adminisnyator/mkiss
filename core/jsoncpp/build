@@ -1,14 +1,14 @@
 #!/bin/bash -uxe
 export DESTDIR="$1"
 
-meson build \
+meson setup build \
 	--default-library shared \
 	${MESON_OPTIONS}
 
 ninja -C build
 ninja -C build install
 
-meson build-static \
+meson setup build-static \
 	${MESON_OPTIONS/-D b_lto=true/} \
 	--default-library static
 
