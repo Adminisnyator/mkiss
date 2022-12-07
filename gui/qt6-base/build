@@ -22,12 +22,11 @@ cmake -B build -G Ninja \
     -D QT_FEATURE_openssl_linked=ON \
     -D QT_FEATURE_system_sqlite=ON \
     -D QT_FEATURE_system_xcb_xinput=ON \
-    -D CMAKE_INTERPROCEDURAL_OPTIMIZATION=ON
+    -D CMAKE_INTERPROCEDURAL_OPTIMIZATION=ON \
+    -Wno-dev
 
 ninja -C build
 ninja -C build install
-
-srcdir=$PWD
 
 mkdir -p "$1"/usr/bin
 ln -s /usr/lib/qt6/bin/qmake "$1"/usr/bin/qmake6
