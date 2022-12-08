@@ -1,8 +1,8 @@
 #!/bin/bash -uxe
 
-for i in *.patch; do
-    patch -p0 -i $i
-done
+#for i in *.patch; do
+    #patch -p0 -i $i
+#done
 autoconf
 
 phpconfig=('--prefix=/usr '
