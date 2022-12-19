@@ -1,0 +1,16 @@
+#!/bin/sh -uxe
+export DESTDIR="$1"
+
+cmake -B build -G Ninja \
+    -D CMAKE_INSTALL_PREFIX=/usr \
+    -D CMAKE_INSTALL_LIBDIR=lib \
+    -D BUILD_EXAMPLES=OFF \
+    -D BUILD_SHARED_LIBS=ON \
+    -D CMAKE_BUILD_TYPE=Release \
+    -D CMAKE_C_FLAGS="${CFLAGS} -fPIC -w" \
+    -D OpenGL_GL_PREFERENCE=GLVND \
+    -D USE_EXTERNAL_GLFW=OFF \
+    -D WITH_PIC=on 
+
+ninja -C build
+ninja -C build install
