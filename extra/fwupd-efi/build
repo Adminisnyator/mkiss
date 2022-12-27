@@ -1,0 +1,13 @@
+#!/bin/bash -uxe
+export DESTDIR="$1"
+
+meson setup build \
+    ${MESON_OPTIONS} \
+    -D efi_sbat_distro_id='mkiss' \
+    -D efi_sbat_distro_summary='MKiss Linux' \
+    -D efi_sbat_distro_pkgname='fwupd-efi' \
+    -D efi_sbat_distro_version="${2}" \
+    -D efi_sbat_distro_url="https://github.com/mdartmann/mkiss"
+
+ninja -C build
+ninja -C build install
