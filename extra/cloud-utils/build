@@ -1,0 +1,3 @@
+#!/bin/bash -uxe
+
+make DESTDIR="$1" install
