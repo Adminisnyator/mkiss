@@ -1,0 +1,30 @@
+#!/bin/bash -uxe
+
+sed -i \
+    -e "s|/opt/schily|/usr|g" \
+    -e "s|DEFINSGRP=.*|DEFINSGRP=root|" \
+    DEFAULTS/Defaults.linux
+
+# Install rscsi to bin instead of sbin
+sed -i "s|INSDIR=.*|INSDIR=bin|" rscsi/Makefile
+
+export GMAKE_NOWARM=true
+make -j1 INS_BASE=/usr INS_RBASE=/ VERSION_OS="_MKiss" LDOPTX="$LDFLAGS"
+make -j1 INS_BASE=/usr INS_RBASE=/ DESTDIR="$1" install
+
+# Remove additional files
+rm -rf \
+    "$1"/usr/include \
+    "$1"/usr/lib/{*.a,profiled} \
+    "$1"/usr/share/man/man3
+
+# autoload 'sg' module needed by cdrecord
+install -dm755 "$1"/usr/lib/modules-load.d
+echo sg > "$1"/usr/lib/modules-load.d/cdrecord.conf
+
+# create symlinks for cdrkit replacements
+cd "$1"/usr/bin
+ln -s cdrecord wodim
+ln -s readcd readom 
+ln -s mkisofs genisoimage
+ln -s cdda2wav icedax
