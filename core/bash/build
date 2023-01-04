@@ -7,16 +7,32 @@ for patch in bash52*; do
 	patch -p0 -i $patch;
 done
 
-autoconf
+export bashconfig=(
+-DDEFAULT_PATH_VALUE=/usr/local/sbin:/usr/local/bin:/usr/bin
+-DSTANDARD_UTILS_PATH=/usr/bin
+-DSYS_BASHRC=/etc/bashrc
+-DSYS_BASH_LOGOUT=/etc/bash_logout
+-DNON_INTERACTIVE_LOGIN_SHELLS
+)
+
 
 ./configure \
 	--prefix=/usr \
+    --with-curses \
+    --enable-readline \
 	--without-bash-malloc \
-	--without-installed-readline \
-	--enable-nls
+	--without-installed-readline
 
 # limit threads to avoid race condition
-make -j4
+make
 make -j1 DESTDIR="$1" install
 
 ln -s bash "$1/usr/bin/sh"
+
+install -Dm644 system.bashrc "$1"/etc/bashrc
+install -Dm644 system.bash_logout "$1"/etc/bash_logout
+
+install -dm755 "$1"/etc/skel
+install -m644 skel.bashrc "$1"/etc/skel/.bashrc
+install -m644 skel.bash_profile "$1"/etc/skel/.bash_profile
+install -m644 skel.bash_logout "$1"/etc/skel/.bash_logout
