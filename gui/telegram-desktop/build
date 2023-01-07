@@ -1,18 +1,13 @@
 #!/bin/bash -uxe
 export DESTDIR="$1"
 
-git submodule init
-git submodule update --recursive
-
 rm -rf Telegram/ThirdParty/libtgvoid/webrtc_dsp/absl
 
 cmake -B build -G Ninja \
-    -D DESKTOP_APP_QT6=on \
     -D CMAKE_INSTALL_PREFIX=/usr \
     -D CMAKE_BUILD_TYPE=Release \
     -D TDESKTOP_API_ID=611335 \
     -D TDESKTOP_API_HASH=d524b414d21f4d37f08684c1df41ac9c
 
-sed -i "s|rtp_utility.h|rtp_util.h|" Telegram/ThirdParty/tgcalls/tgcalls/MediaManager.cpp
 ninja -C build 
 ninja -C build install

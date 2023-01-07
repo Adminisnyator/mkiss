@@ -1,0 +1,9 @@
+#!/bin/bash -uxe
+export DESTDIR="$1"
+
+meson setup build \
+    ${MESON_OPTIONS} \
+    -D maintainer-mode=true
+
+ninja -C build
+ninja -C build install
