@@ -1,6 +1,13 @@
 #!/bin/bash -uxe
 export DESTDIR="$1"
 
+git fetch
+
+# work with gupnp 1.6
+git cherry-pick -n \
+    649b7100339c57531a8e31f69220f8e17f0860e0 \
+    79a1e4cf8c256132978a1d8ab718c8ad132386de
+
 meson setup build \
     ${MESON_OPTIONS} \
     -D gtk_doc=true
