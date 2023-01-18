@@ -1,9 +1,6 @@
 #!/bin/bash -uxe
 export DESTDIR="$1"
 
-# Fix redefinition by glib2
-patch -Rp1 -i 63c02dc9e80e99e38c04514917a49a574e344e36.patch
-
 meson setup build \
     -D session_tracking=libsystemd-login \
     -D os_type=redhat \
@@ -17,7 +14,6 @@ ninja -C build
 ninja -C build install
 
 install -dm750 "$1"/{etc,usr/share}/polkit-1/rules.d
-mv "$1"/{etc,usr/share}/polkit-1/rules.d/50-default.rules
 
 install -Dm644 /dev/stdin "$1/usr/lib/sysusers.d/polkit.conf" <<END
 u polkitd 102 "PolicyKit daemon"
