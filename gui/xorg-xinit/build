@@ -1,10 +1,6 @@
 #!/bin/bash -uxe
 export DESTDIR="$1"
 
-for patch in *.patch; do
-    patch -Np1 -i $patch
-done
-
 sed -i -e 's/XSLASHGLOB.sh/XSLASHGLOB/' xinitrc.cpp
 
 autoreconf -fiv
