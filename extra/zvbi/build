@@ -1,5 +1,7 @@
 #!/bin/bash -uxe
 
+NOCONFIGURE=1 ./autogen.sh
+
 ./configure \
     --prefix=/usr \
     --sbindir=/usr/bin
