@@ -1,5 +1,6 @@
 #!/bin/bash -uxe
 
+patch -Np1 -i allpatches
 autoreconf -fiv
 
 ./configure \
