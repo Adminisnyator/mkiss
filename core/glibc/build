@@ -1,5 +1,6 @@
 #!/bin/bash -uxe
 # vim:fdm=marker
+:>nostrip
 
 export CFLAGS="${CFLAGS/-Wp,-D_FORTIFY_SOURCE=2/}"
 export CXXFLAGS="${CXXFLAGS/-Wp,-D_FORTIFY_SOURCE-2/}"
@@ -59,7 +60,7 @@ make -O
 mv "$1"/var ./varbak
 
 # ... install everything...
-make install_root="$1" install
+make -O install_root="$1" install
 
 # ... Remove stuff we don't want ...
 rm -rf $1/{etc,sbin,usr/{bin,sbin,share},var/db/Makefile}
@@ -118,8 +119,8 @@ printf "%s\n" \
     "rtlddir=/usr/lib" \
     "sbindir=/usr/bin" \
     "rootsbindir=/usr/bin" > configparms
-make 
-make DESTDIR="$1" install
+make -O
+make -O DESTDIR="$1" install
 
 rm "$1"/var/db/Makefile "$1/usr/bin/ldd" "$1/usr/bin/sotruss" "$1/usr/bin/xtrace" "$1/usr/bin/tzselect"
 
