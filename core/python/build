@@ -28,6 +28,7 @@ export LINKFORSHARED="$LDFLAGS"
     --with-computed-gotos \
     --enable-optimizations \
     --with-doc-strings \
+    --without-ensurepip \
     ax_cv_c_float_words_bigendian=no
 
 find -name Makefile -exec sed -i "s|-Werror|-Wno-error|g" {} +
