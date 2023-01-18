@@ -13,10 +13,13 @@ cd binutils-build
 	--with-lib-path=/usr/lib:/usr/local/lib \
     --with-bugurl=https://github.com/mdartmann/mkiss/issues \
 	--enable-cet \
+    --enable-colord-disassembly \
+    --enable-default-execstack=no \
 	--enable-deterministic-archives \
 	--enable-gold \
     --enable-install-libiberty \
 	--enable-ld=default \
+    --enable-new-dtags \
     --enable-pgo-build=lto \
 	--enable-plugins \
 	--enable-relro \

@@ -1,2 +1,2 @@
-git+git://sourceware.org/git/binutils-gdb.git#binutils-MAJOR_MINOR
+git+git://sourceware.org/git/binutils-gdb.git#78eca0130feecb321bb6943045b2161583f61dd2
 patches/gold-warn-unsupported.patch
