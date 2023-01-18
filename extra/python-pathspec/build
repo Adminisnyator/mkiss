@@ -1,8 +1,10 @@
 #!/bin/bash -uxe
 
+export SETUPTOOLS_SCM_PRETEND_VERSION=$2
+
 python -m build \
     --wheel \
     --skip-dependency-check \
     --no-isolation
 
-python setup.py install --root="$1" --optimize=1 --skip-build
+python -m installer --destdir="$1" dist/*.whl
