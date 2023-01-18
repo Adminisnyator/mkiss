@@ -1,10 +1,9 @@
 #!/bin/bash -uxe
 export DESTDIR="$1"
 
-cd AppStream-"$2"
-
-meson setup build \
-    "${MESON_OPTIONS}" \
+meson build AppStream-"$2" \
+    --prefix=/usr \
+    --libexecdir=lib \
     -D qt=true \
     -D vapi=true \
     -D compose=true
