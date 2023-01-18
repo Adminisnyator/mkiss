@@ -8,3 +8,6 @@
 
 make
 make DESTDIR="$1" install
+
+# iconv gets shipped with glibc, not needed in pkgconfig spec
+sed -i "s|iconv ||" "$1"/usr/lib/pkgconfig/libarchive.pc
