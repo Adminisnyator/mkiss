@@ -11,9 +11,6 @@ patch -Np1 -i 0002-compiler-Change-LLVM-targets.patch
 # Use LLVMs wasm-ld
 patch -Np1 -i 0003-compiler-Use-wasm-ld-for-wasm-targets.patch
 
-# Fix duplicate include of glibc and linux headers (LLVM-project #565421)
-patch -Np1 -d src/llvm-project < remove-include-linux-fs.h.patch
-
 cat > config.toml << EOF
 changelog-seen = 2
 profile = "user"
