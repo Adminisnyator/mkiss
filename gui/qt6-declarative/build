@@ -2,7 +2,8 @@
 export DESTDIR="$1"
 
 cmake -B build -G Ninja \
-    -D INSTALL_PUBLICBINDIR=usr/bin
+    -D INSTALL_PUBLICBINDIR=usr/bin \
+    -D CMAKE_MESSAGE_LOG_LEVEL=STATUS
 
 ninja -C build
 ninja -C build install
