@@ -4,11 +4,11 @@
 export fwdir="$1/usr/lib/firmware/intel"
 mkdir -p $fwdir
 
-cp -at "$fwdir" sof-v${2%.*}
-ln -sr "$fwdir"/{sof-v${2%.*},sof}
+cp -at "$fwdir" sof-v${2}
+ln -sr "$fwdir"/{sof-v${2},sof}
 
-cp -at "$fwdir" sof-tplg-v${2%.*}
+cp -at "$fwdir" sof-tplg-v${2}
 
 ln -sr "$fwdir"/{sof-tplg,sof-tplg-$2}
 
-install -Dt "$1"/usr/bin tools-v${2%.*}/*
+install -Dt "$1"/usr/bin tools-v${2}/*
