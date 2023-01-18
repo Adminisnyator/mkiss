@@ -1,1 +1,2 @@
-https://github.com/freedesktop/xdg-shared-mime-info/archive/Release-VERSION.tar.gz
+git+https://gitlab.freedesktop.org/xdg/shared-mime-info.git#VERSION
+files/mime-database.hook
