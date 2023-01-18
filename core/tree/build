@@ -2,5 +2,3 @@
 
 make
 make DESTDIR="$1/usr/bin"  MANDIR="$1/usr/share/man/man1" install
-
-zsh
