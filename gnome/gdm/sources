@@ -1,2 +1,3 @@
 git+https://gitlab.gnome.org/GNOME/gdm.git#VERSION
 files/default.pa
+patches/0001-nvidia-prime.patch

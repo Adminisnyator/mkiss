@@ -1,0 +1,28 @@
+#!/bin/sh
+# vim:set ts=2 sw=2 et:
+
+if [ "$1" = "post-install" ]; then
+  shift
+  installdir="$2"
+
+  if grep "/usr/src/.*/dkms.conf\|/usr/lib/modules/.*/build/include/\|/usr/lib/modules/.*/modules.alias" "$installdir/manifest" > /dev/null 2>&1; then
+    echo "Installing DKMS modules..."
+    cat "$installdir/manifest" | /usr/bin/dkms-helper.sh install
+  fi
+elif [ "$1" = "pre-remove" ]; then
+  shift
+  installdir="$2"
+
+  if grep "/usr/src/.*/dkms.conf\|/usr/lib/modules/.*/build/include/\|/usr/lib/modules/.*/modules.alias" "$installdir/manifest" > /dev/null 2>&1; then
+    echo "Installing DKMS modules..."
+    cat "$installdir/manifest" | usr/bin/dkms-helper.sh remove
+  fi
+elif [ "$1" = "post-update" ]; then
+  shift
+  installdir="$2"
+
+  if grep "/usr/src/.*/dkms.conf\|/usr/lib/modules/.*/build/include/\|/usr/lib/modules/.*/modules.alias" "$installdir/manifest" > /dev/null 2>&1; then
+    echo "Installing DKMS modules..."
+    cat "$installdir/manifest" | usr/bin/dkms-helper.sh -D remove
+  fi
+fi

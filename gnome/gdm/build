@@ -1,6 +1,8 @@
 #!/bin/bash -uxe
 export DESTDIR="$1"
 
+patch -Np1 -i 0001-nvidia-prime.patch
+
 meson setup build \
     ${MESON_OPTIONS/-D b_lto=true/} \
     -D dbus-sys=/usr/share/dbus-1/system.d \
@@ -30,3 +32,16 @@ install -Dm644 /dev/stdin "$1"/usr/lib/sysusers.d/gdm.conf << EOF
 g gdm 120 -
 u gdm 120 "Gnome Display Manager" /var/lib/gdm
 EOF
+
+install -m644 /dev/stdin "$1"/var/lib/gdm/.config/pulse/default.pa <<END
+load-module module-device-restore
+load-module module-card-restore
+load-module module-udev-detect
+load-module module-native-protocol-unix
+load-module module-default-device-restore
+load-module module-always-sink
+load-module module-intended-roles
+load-module module-suspend-on-idle
+load-module module-systemd-login
+load-module module-position-event-sounds
+END

@@ -1,0 +1,3 @@
+git+https://github.com/dell/dkms.git#vVERSION
+files/dkms-helper.sh
+files/dkms.kiss-hook

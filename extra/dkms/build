@@ -1,0 +1,18 @@
+#!/bin/bash -uxe
+
+for i in dkms{.in,.8.in,_framework.conf,.bash-completion,_common.postinst}; do
+    sed -ri 's|/lib/modules|/usr/lib/modules|g' "$i"
+done
+
+mkdir temp
+
+make \
+    DESTDIR="$1" \
+    SBIN="$1/usr/bin" \
+    BASHDIR="$1/usr/share/bash-completion/completions" \
+    KCONF=temp \
+    LIBDIR=temp \
+    install
+
+install -Dm755 dkms-helper.sh "$1"/usr/bin/
+install -Dm755 dkms.kiss-hook "$1"/etc/kiss-hooks/dkms
