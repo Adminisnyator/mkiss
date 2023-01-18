@@ -2,6 +2,8 @@
 
 source /etc/kiss-flags/multilib.sh
 
+patch -Np0 -i readline82-001 
+
 # remove rpath from shared objects
 sed -i 's|-Wl,-rpath,$(libdir)||g' support/shobj-conf
 

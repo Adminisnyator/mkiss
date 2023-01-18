@@ -2,10 +2,6 @@
 
 source /etc/kiss-flags/multilib.sh
 
-for i in *.patch; do
-    patch -Np1 -i $i
-done
-
 ./configure \
     --prefix=/usr \
     --libdir=/usr/lib32
