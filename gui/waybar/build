@@ -1,16 +1,15 @@
 #!/bin/bash -uxe
 export DESTDIR="$1"
 
-# Fix build with fmt9
-patch -Np1 -i 24a8332b62b5c1c8d480116655ce9c582d1f4516.patch
-
 meson setup build \
     --prefix=/usr \
     --buildtype=plain \
     --auto-features=enabled \
     --wrap-mode=nodownload \
     -D systemd=enabled \
-    -D tests=disabled
+    -D tests=disabled \
+    -D jack=disabled \
+    -D wireplumber=disabled
 
 ninja -C build
 ninja -C build install
