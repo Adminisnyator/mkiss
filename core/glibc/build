@@ -25,9 +25,6 @@ export CHOST=i686-pc-linux-gnu
 
 cd lib32-glibc
 
-# Fix weird symbol issue in libstdc++ for the first time building it as 32-bit.
-# patch -Np1 -i ../avoid-cplusplus-in-bootstrap-links-dso-program.patch
-
 mkdir build && cd build
 
 printf "%s\n" \
@@ -63,15 +60,15 @@ mv "$1"/var ./varbak
 make -O install_root="$1" install
 
 # ... Remove stuff we don't want ...
-rm -rf $1/{etc,sbin,usr/{bin,sbin,share},var/db/Makefile}
+rm -rf "${1}"/{etc,sbin,usr/{bin,sbin,share},var/db}
 
 # ...and move /var back into place.
 mv ./varbak/db "$1"/var/
 
 # Only keep 32-bit-specific headers.
 mkdir "$1"/usr/lib
-find $1/usr/include -type f -not -name "*-32.h" -print -delete
-ln -s ../lib32/ld-linux.so.2 $1/usr/lib/
+find "$1"/usr/include -type f -not -name "*-32.h" -print -delete
+ln -s ../lib32/ld-linux.so.2 "$1"/usr/lib/
 
 # Add lib32 paths to the default ld.so search path.
 echo "/usr/lib32" | install -Dm644 /dev/stdin "$1"/etc/ld.so.conf.d/lib32-glibc.conf
@@ -122,13 +119,62 @@ printf "%s\n" \
 make -O
 make -O DESTDIR="$1" install
 
-rm "$1"/var/db/Makefile "$1/usr/bin/ldd" "$1/usr/bin/sotruss" "$1/usr/bin/xtrace" "$1/usr/bin/tzselect"
+rm "$1"/var/db/Makefile "$1/usr/bin/ldd" "$1/usr/bin/sotruss" "$1/usr/bin/xtrace"
+
+# generate C.UTF-8 locale (not built into glibc yet)
+elf/ld.so \
+    --library-path "$PWD" \
+    locale/localedef \
+    -c \
+    -f ../localedata/charmaps/UTF-8 \
+    -i ../localedata/locales/C \
+    ../C.UTF-8/
+
+cd ..
 
 #}}}
 
-install -dm755 "$1/usr/lib/locale"
-printf "en_US.UTF8 UTF-8" > "$1/etc/locale.gen"
+#{{{ install
 
-for script in ldd locale-gen sotruss; do
-    install -Dm755 "../../alternatives/glibc/$script" "$1/usr/bin/$script"
-done
+# this gets regenerated in post-install
+rm "$1"/etc/ld.so.cache
+
+# shipped in tzdata
+rm "$1"/usr/bin/{tzselect,zdump,zic}
+
+# all neccesary folders
+install -dm755 "$1"/usr/lib/{locale,systemd/system,tmpfiles.d}
+
+# nscd service stuff
+install -Dm644 nscd/nscd.conf "$1"/etc/nscd.conf
+install -Dm644 nscd/nscd.service "$1"/usr/lib/systemd/system/nscd.service
+install -Dm644 nscd/nscd.tmpfiles "$1"/usr/lib/tmpfiles.d/nscd.conf
+
+# getaddrinfo config
+install -Dm644 posix/gai.conf "$1"/etc/gai.conf
+
+# locale-gen script (stolen from Arch)
+install -Dm755 ../locale-gen "$1"/usr/bin/locale-gen
+
+# list supported locales in /etc/locale.gen
+install -Dm644 ../locale.gen.txt "$1"/etc/locale.gen
+
+sed \
+    -e '1,3d' \
+    -e 's|/| |g' \
+    -e 's|\\| |g' \
+    -e 's|^|#|g' \
+    localedata/SUPPORTED >> "$1"/etc/locale.gen
+
+# add SUPPORTED file to package, too
+sed \
+    -e '1,3d' \
+    -e 's|/| |g' \
+    -e 's| \\||g' \
+    localedata/SUPPORTED > "$1"/usr/share/i18n/SUPPORTED
+
+# install C.UTF-8 locale so it's always available
+cp -r C.UTF-8 -t "$1"/usr/lib/locale
+sed -i '/#C\.UTF-8 /d' "$1"/etc/locale.gen
+
+#}}}
