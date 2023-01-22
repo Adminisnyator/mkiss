@@ -16,14 +16,6 @@ post_common() {
   journalctl --update-catalog
 }
 
-_242_0_2_changes() {
-  if [[ -L var/lib/systemd/timesync ]]; then
-    rm var/lib/systemd/timesync
-    if [[ -d var/lib/private/systemd/timesync ]]; then
-      mv var/lib/{private/,}systemd/timesync
-    fi
-  fi
-}
 
 post_install() {
   systemd-machine-id-setup
@@ -41,7 +33,6 @@ post_install() {
   echo "   bootloader to replace sysvinit with systemd, or install systemd-sysvcompat"
 
   mkdir -m2755 var/log/journal/remote
-  chgrp systemd-journal-remote var/log/journal/remote
 }
 
 post_install 250
