@@ -8,6 +8,7 @@
 	--with-system-socket=/var/run/dbus/system_bus_socket \
 	--with-system-pid-file=/var/run/dbus/pid \
 	--with-console-auth-dir=/var/run/console \
+    --with-dbus-user=dbus \
     --enable-libaudit \
     --enable-systemd \
 	--enable-assert \
