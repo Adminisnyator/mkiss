@@ -32,7 +32,7 @@ post_install() {
   echo ":: Append 'init=/usr/lib/systemd/systemd' to your kernel command line in your"
   echo "   bootloader to replace sysvinit with systemd, or install systemd-sysvcompat"
 
-  mkdir -m2755 var/log/journal/remote
+  mkdir -m2755 /var/log/journal/remote
 }
 
 post_install 250
