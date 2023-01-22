@@ -11,13 +11,9 @@ make DESTDIR="$1" SCONFDIR=/etc/security install
 
 mkdir "$1"/etc/pam.d
 
-pamfiles=$(ls *.pamd | cut -d '.' -f1)
-
-for i in $pamfiles; do
-    mv $i.pamd "$1"/etc/pam.d/$i
-done
-
 mkdir "$1"/usr/lib/tmpfiles.d
 echo 'd /run/faillock 0755 root root -' > "$1"/usr/lib/tmpfiles.d/pam.conf
 
-
+for i in *.pam; do
+    install -Dm644 "$i" "$1"/etc/pam.d/"${i//.pam}"
+done

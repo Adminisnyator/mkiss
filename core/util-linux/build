@@ -19,14 +19,21 @@
 	--with-python=3
 
 # Remove nonexsistant warnflag caused by configure.
-find -name Makefile -exec sed -i 's|-Wembedded-directive||g' {} \;
+# find -name Makefile -exec sed -i 's|-Wembedded-directive||g' {} \;
 
 make
-make DESTDIR="$1" install
+make DESTDIR="$1" usrsbin_execdir=/usr/bin install
 
-# Fix broken --sbindir.
-mv -f "$1/usr/sbin/"* "$1/usr/bin"
-rmdir "$1/usr/sbin"
+# install PAM files
+install -Dm0644 "pam-common" "${1}/etc/pam.d/chfn"
+install -m0644 "pam-common" "${1}/etc/pam.d/chsh"
+install -m0644 "pam-login" "${1}/etc/pam.d/login"
+install -m0644 "pam-runuser" "${1}/etc/pam.d/runuser"
+install -m0644 "pam-runuser" "${1}/etc/pam.d/runuser-l"
+install -m0644 "pam-su" "${1}/etc/pam.d/su"
+install -m0644 "pam-su" "${1}/etc/pam.d/su-l"
+
+sed -i "/ListenStream/ aRuntimeDirectory=uuidd" "$1"/usr/lib/systemd/system/uuidd.socket
 
 install -Dm0644 "util-linux.sysusers" \
     "${1}/usr/lib/sysusers.d/util-linux.conf"
@@ -38,11 +45,3 @@ install -Dm0644 "rfkill-unblock_.service" \
     "${1}/usr/lib/systemd/system/rfkill-unblock@.service"
 install -Dm0644 "rfkill-block_.service" \
     "${1}/usr/lib/systemd/system/rfkill-block@.service"
-
-install -Dm0644 "pam-common" "${1}/etc/pam.d/chfn"
-install -m0644 "pam-common" "${1}/etc/pam.d/chsh"
-install -m0644 "pam-login" "${1}/etc/pam.d/login"
-install -m0644 "pam-runuser" "${1}/etc/pam.d/runuser"
-install -m0644 "pam-runuser" "${1}/etc/pam.d/runuser-l"
-install -m0644 "pam-su" "${1}/etc/pam.d/su"
-install -m0644 "pam-su" "${1}/etc/pam.d/su-l"

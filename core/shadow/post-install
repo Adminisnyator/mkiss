@@ -1,4 +1,11 @@
 #!/bin/sh
 
+for i in chage expiry gpasswd newgrp passwd ; do
+    chmod 4755 /usr/bin/$i
+done
+
 chmod +s /usr/bin/newuidmap
 chmod +s /usr/bin/newgidmap 
+setcap cap_setuid+ep /usr/bin/newuidmap
+setcap cap_setgid+ep /usr/bin/newgidmap
+

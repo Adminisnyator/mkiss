@@ -1,5 +1,12 @@
 #!/bin/bash -uxe
 
+# Apply patches (most defaults are taken from Arch Linux)
+for i in *.patch; do
+    patch -Np1 -i $i
+done
+
+autoreconf -fiv
+
 ./configure \
     --prefix=/usr \
     --bindir=/usr/bin \
@@ -8,49 +15,24 @@
     --mandir=/usr/share/man \
     --sysconfdir=/etc \
     --disable-account-tools-setuid \
+    --enable-man \
+    --with-fcaps \
     --with-libpam \
     --with-group-name-max-length=32 \
     --with-audit \
+    --with-bcrypt \
+    --with-yescrypt \
     --without-selinux \
     --without-su
 
 make
-make DESTDIR="$1" install
+fakeroot make DESTDIR="$1" install
 make DESTDIR="$1" -C man install
 
-# Fix broken --sbindir.
-mv -f "$1/usr/sbin/"* "$1/usr/bin"
-rmdir "$1/usr/sbin"
-
-#rm -r "$1"/etc/pam.d
-# Remove evil/broken tools
-rm "$1"/usr/bin/logoutd
-
-# Remove utilities provided by util-linux
-rm "$1"/usr/bin/login
-rm "$1"/usr/bin/chsh
-rm "$1"/usr/bin/chfn
-rm "$1"/usr/bin/sg
-rm "$1"/usr/bin/nologin
-rm "$1"/usr/bin/vipw
-rm "$1"/usr/bin/vigr
-# but we keep newgrp, as sg is really an alias to it
-mv "$1"/usr/bin/{newgrp,sg}
-
-install -Dm600 useradd.defaults "$1"/etc/default/useradd
+# custom useradd(8) defaults
+install -Dm600 useradd.defaults "$1"/etc/defaults/useradd
 
 # systemd units
 install -Dm644 shadow.timer "$1"/usr/lib/systemd/system/shadow.timer
 install -Dm644 shadow.service "$1"/usr/lib/systemd/system/shadow.service
-install -dm755 "$1"/usr/lib/systemd/system/timers.target.wants
 
-install -Dm644 login.defs "$1"/etc/login.defs
-rm "$1"/etc/pam.d/*
-
-install -t "$1"/etc/pam.d -m644 passwd chgpasswd chpasswd newusers
-
-install -Dm644 etc/pam.d/groupmems "$1"/etc/pam.d/groupmems
-
-for file in chage groupadd groupdel groupmod shadow useradd usermod userdel; do
-    install -Dm644 defaults.pam "$1"/etc/pam.d/$file
-done

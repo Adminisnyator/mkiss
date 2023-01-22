@@ -1,0 +1,3 @@
+#!/bin/bash
+
+chmod 4755 "$1"/usr/bin/{newgrp,ch{sh,fn}}

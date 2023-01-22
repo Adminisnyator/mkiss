@@ -1,11 +1,8 @@
-https://github.com/shadow-maint/shadow/releases/download/vVERSION/shadow-VERSION.tar.xz
-files/newusers
-files/chgpasswd
-files/shadow.service
-files/chpasswd
+https://github.com/shadow-maint/shadow/releases/download/VERSION/shadow-VERSION.tar.xz
 files/shadow.timer
-files/shadow.install
-files/passwd
-files/login.defs
-files/defaults.pam
+files/shadow.service
 files/useradd.defaults
+patches/0002-Adapt-login.defs-for-PAM-and-util-linux.patch
+patches/0004-Add-MKiss-Linux-defaults-for-etc-pam.d.patch
+patches/0001-Disable-replaced-tools-and-man-pages.patch
+patches/0003-Add-MKiss-Linux-defaults-for-login.defs.patch

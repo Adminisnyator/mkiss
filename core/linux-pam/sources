@@ -1,7 +1,7 @@
 https://github.com/linux-pam/linux-pam/releases/download/vVERSION/linux-pam-VERSION.tar.xz
-files/system-services.pamd
-files/system-login.pamd
-files/other.pamd
-files/system-auth.pamd
-files/system-local-login.pamd
-files/system-remote-login.pamd
+files/other.pam
+files/system-services.pam
+files/system-auth.pam
+files/system-login.pam
+files/system-local-login.pam
+files/system-remote-login.pam
