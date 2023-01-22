@@ -119,7 +119,7 @@ printf "%s\n" \
 make -O
 make -O DESTDIR="$1" install
 
-rm "$1"/var/db/Makefile "$1/usr/bin/ldd" "$1/usr/bin/sotruss" "$1/usr/bin/xtrace"
+rm "$1"/var/db/Makefile
 
 # generate C.UTF-8 locale (not built into glibc yet)
 elf/ld.so \
