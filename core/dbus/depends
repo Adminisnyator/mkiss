@@ -1,5 +1,4 @@
 audit
 expat
 libcap-ng
-libx11
 systemd

@@ -1,0 +1,13 @@
+#!/bin/sh
+# vim:set ts=2 sw=2 et:
+
+if [ $1 = "post-install" ]; then
+  shift
+  pkgname="$1"
+  installdir="$2"
+
+  if grep "/etc/dbus-1/system.d/.*.conf\|/usr/share/dbus-1/system.d/.*.conf\|/usr/share/dbus-1/system-services/.*.service" $installdir/manifest > /dev/null 2>&1; then
+    echo "Reloading dbus configuration..."
+    systemctl reload dbus
+  fi
+fi

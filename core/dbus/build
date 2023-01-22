@@ -8,14 +8,18 @@
 	--with-system-socket=/var/run/dbus/system_bus_socket \
 	--with-system-pid-file=/var/run/dbus/pid \
 	--with-console-auth-dir=/var/run/console \
+    --enable-libaudit \
     --enable-systemd \
 	--enable-assert \
 	--enable-doxygen-docs \
 	--enable-inotify \
 	--enable-user-session \
-	--enable-x11-autolaunch
+    --disable-static \
+    --without-x 
 
 make
 make DESTDIR="$1" install
 
 echo 'u dbus 81 "System Message Bus"' | install -Dm644 /dev/stdin "$1"/usr/lib/sysusers.d/dbus.conf
+
+install -Dm755 dbus-reload.kiss-hook "$1"/etc/kiss-hooks/dbus-reload
