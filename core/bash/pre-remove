@@ -1,0 +1,8 @@
+#!/bin/bash -ue
+
+sed \
+    -e '\/bin\/sh/d' \
+    -e '\/usr\/bin\/sh/d' \
+    -e '\/bin\/bash/d' \
+    -e '\/usr\/bin\/bash/d' \
+    -i /etc/shells

@@ -1,0 +1,6 @@
+#!/bin/bash -ue
+
+sed \
+    -e '\/bin\/zsh/d' \
+    -e '\/usr\/bin\/zsh/d' \
+    -i /etc/shells

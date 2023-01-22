@@ -1,0 +1,9 @@
+#!/bin/bash -ue
+
+cat >> /etc/shells << EOF
+/bin/sh
+/usr/bin/sh
+/bin/bash 
+/usr/bin/bash
+EOF
+
