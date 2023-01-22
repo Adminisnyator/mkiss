@@ -1,8 +1,10 @@
-NAME="KISS Linux"
-PRETTY_NAME="KISS Linux"
-ID=kiss
+NAME="MKISS Linux"
+PRETTY_NAME="MKISS Linux"
+ID=mkiss
+DISTRIB_ID=MKiss
+DISTRIB_RELEASE=rolling
 BUILD_ID=rolling
-HOME_URL="https://k1ss.org"
-DOCUMENTATION_URL="https://k1ss.org"
-SUPPORT_URL="https://github.com/kisslinux"
-BUG_REPORT_URL="https://github.com/kisslinux"
+HOME_URL="https://github.com/mdartmann/mkiss"
+DOCUMENTATION_URL="https://github.com/mdartmann/mkiss"
+SUPPORT_URL="https://github.com/mdartmann/mkiss"
+BUG_REPORT_URL="https://github.com/mdartmann/mkiss/issues"
