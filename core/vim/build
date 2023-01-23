@@ -8,6 +8,7 @@
 --with-view-name=vim-view \
 --disable-perlinterp \
 --enable-python3interp \
+--disable-canberra \
 --disable-rubyinterp \
 --disable-netbeans \
 --disable-gpm \
