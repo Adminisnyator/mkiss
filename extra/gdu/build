@@ -5,7 +5,11 @@ go build \
     -buildmode=pie \
     -mod=readonly \
     -modcacherw \
-    -ldflags="-linkmode external -extldflags \"${LDFLAGS}\"" \
+    -ldflags="-linkmode external 
+        -extldflags \"${LDFLAGS}\" 
+        -X github.com/dundee/gdu/v5/build.VERSION=${2} 
+        -X github.com/dundee/gdu/v5/build.User=mkiss 
+        -X github.com/dundee/gdu/v5/build.Time=$(date +%s)" \
     -o dist/gdu \
     github.com/dundee/gdu/v5/cmd/gdu
 
