@@ -1,5 +1,9 @@
 # mkiss
 
+## On hiatus
+
+This project is on hiatus; I unfortunately do not have the time to maintain it anymore. Please let me know if you need anything, I still have old backup tarballs if you wish to continue my work.
+
 > A KISS Linux repository for daily driving
 
 ## What is this?
